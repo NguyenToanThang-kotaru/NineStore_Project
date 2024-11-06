@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, san-siref;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Side menu */
+.side-menu {
+  position: fixed;
+  min-width: 7%;
+  height: 100%;
+  background-color: #d9d9d9;
+  z-index: 2;
+}
+
+/* icon position */
+#side-menu__menu-sp i {
+  margin: 50px calc(50% - 26%);
+}
+
+#side-menu__menu-order i {
+  margin: 50px calc(50% - 18%);
+}
+
+/* icon's color */
+a:link,
+a:visited {
+  color: black;
+}
+
+a:hover,
+a:active {
+  color: red;
+}
+
+/* Content */
+.main {
+  position: relative;
+  margin-left: 7%;
+}
+
+#nd {
+  text-align: center;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+  margin: auto auto 10% auto;
+}
+
+form {
+  padding-top: 10px;
+  margin: 0 auto;
+  background-color: rgb(230, 230, 223);
+}
+
+.form__submit-style {
+  margin-left: 70%;
+  padding: 10px 0;
+}
+
+.product__header,
+.order__header {
+  height: 100px;
+  position: relative;
+}
+
+.product__title,
+.order__title {
+  background-color: #d9d9d9;
+  position: absolute;
+  margin: 20px calc(50% - 30%);
+  width: 60%;
+  padding: 10px; /* text */
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.product--disable,
+.order--disable,
+.form--disable {
+  display: none;
+}
+
+.product--enable,
+.order--enable,
+.form--enable {
+  display: block;
+}
+
+table,
+td,
+th {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+tr {
+    max-height: 100px;
+}
+
+table {
+  width: 90%;
+}
+
+.product__size-id,
+.order__size-id {
+  width: 10px;
+}
+
+.product__btn-style,
+.order__btn-style {
+  display: flex;
+    justify-content: center;
+  margin: 40px;
+}
+
+.order__width--small {
+    width: 10%;
+}
+
+.form__label {
+  width: 35%;
+  text-align: right;
+  margin: 5px 10px;
+}
+
+.form__input {
+  width: 50%;
+  margin-left: 10px;
+}
+
+.form__x-icon {
+  width: 100%;
+  background-color: #d9d9d9;
+  text-align: right;
+  padding: 5px;
+}
+
+.form__x-icon a {
+  top: 10px;
+  margin: 20px;
+}
+
+/* this function helps to make two divs in the form stay at the same row */
+.form__row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: center; /* make these items centered */
+}
+
+button {
+  border: none;
+  background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(255, 0, 0);
+}
