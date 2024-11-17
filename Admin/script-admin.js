@@ -1,3 +1,5 @@
+// functions
+{
 function toggleForm(formId, mode) {
     const form = document.getElementById(formId);
     form.classList.remove(mode === "open" ? "form--disable" : "form--enable");
@@ -26,12 +28,20 @@ function inputFilled(inputs) {
     }
     return true;
 }
+function returnInputNotFilled(inputs) {
+    for (let input of inputs) {
+        if ((input.tagName === "IMG" && input.src == "") || input.value == "") {
+            return input;
+        }
+    }
+    return -1;
+}
 
 // find ID
 function findId(id, productArray) {
     for (let x in productArray) {
         if (productArray[x].id == id) {
-            return x;
+            return Number(x);
         }
     }
     return -1;
@@ -50,6 +60,11 @@ function getImageUrl(id) {
     });
 }
 
+function changePreview() {
+    let preview = document.querySelector(".form__preview");
+    preview.src = document.getElementById("form__sp-img").src;
+}
+
 // close forms before opening one
 function closeForm() {
     const forms = ["product__add", "product__edit", "product__remove"];
@@ -59,9 +74,10 @@ function closeForm() {
         }
     });
 }
-
+}
 
 document.addEventListener("DOMContentLoaded", function () {
+    // some variables
     const sp = document.getElementById("side-menu__menu-sp");
     const donHang = document.getElementById("side-menu__menu-order");
 
@@ -104,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // store local storage's key
     const key = [];
+
+    // update array when localStorage has values
+{    
     for (let i = 0; i < localStorage.length; i++)
     {
         key.push(localStorage.key(i));
@@ -130,28 +149,30 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         productID++;
     }
+}    
 
-    // trigger animation when the mouse hover
+// trigger animation when the mouse hover   
+{    
+        sp.addEventListener("mouseover", function () {
+            sp.querySelector("i").classList.add("fa-fade");
+        });
     
-    sp.addEventListener("mouseover", function () {
-        sp.querySelector("i").classList.add("fa-fade");
-    });
-
-    sp.addEventListener("mouseleave", function () {
-        sp.querySelector("i").classList.remove("fa-fade");
-    });
-
-    donHang.addEventListener("mouseover", function () {
-        donHang.querySelector("i").classList.add("fa-fade");
-    });
-
-    donHang.addEventListener("mouseleave", function () {
-        donHang.querySelector("i").classList.remove("fa-fade");
-    });
+        sp.addEventListener("mouseleave", function () {
+            sp.querySelector("i").classList.remove("fa-fade");
+        });
+    
+        donHang.addEventListener("mouseover", function () {
+            donHang.querySelector("i").classList.add("fa-fade");
+        });
+    
+        donHang.addEventListener("mouseleave", function () {
+            donHang.querySelector("i").classList.remove("fa-fade");
+        });
+}
     
 
     // open / close a page when the icon is clicked
-    
+{    
     // open product lists
     sp.addEventListener("click", function () {
         toggleForm("product", "open");
@@ -168,8 +189,8 @@ document.addEventListener("DOMContentLoaded", function () {
     addItem.addEventListener("click", function () {
         closeForm();
         // open product__add
+        document.querySelector(".form__preview").src = "./image/no-photo-or-blank-image.jpg";
         toggleForm("product__add", "open");
-        toggleForm("product__add-container", "open");
         getImageUrl("form__sp-img");
 
         // then autofocus the first input
@@ -218,6 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInput([removeIdSP]);
         toggleForm("product__remove", "close");
     });
+}
 
     // submit/upload
     {
@@ -267,40 +289,83 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // make all the input empty
                 clearInput([tenSP, soluongSP, giaSP, chitietSP, hinhSP]);
+                document.querySelector(".form__preview").src = "./image/no-photo-or-blank-image.jpg";
                 event.preventDefault();
             }
         });
 
+        // edit has error
         submitEditItem.addEventListener("click", function (event) {
             event.preventDefault();
-            if (!inputFilled([editIdSP, editTenSP, editSoluongSP, editGiaSP, editChitietSP, editHinhSP])) {
+            // if id is null
+            if (!inputFilled([editIdSP])) {
+                alert("Vui lòng nhập ID của sản phẩm");
+                editIdSP.focus();
                 return false;
             }
-
-            else if (findId(editIdSP.value, productArray) == -1) {
-                alert("Không tìm thấy sản phảm trong danh sách");
-                return false;
+            
+            // if there are tuples that are empty
+            else if (!inputFilled([editTenSP, editSoluongSP, editGiaSP, editChitietSP, editHinhSP])) {
+                if (confirm("Các trường bị bỏ trống sẽ được sử dụng dữ liệu cũ, bạn có chắc chứ?")) {
+                    console.log("Using old data...");
+                    let index = findId(editIdSP.value, productArray);
+                    console.log(`Update data using index ${index}`);
+                    while (returnInputNotFilled([editTenSP, editSoluongSP, editGiaSP, editChitietSP, editHinhSP]) != -1) {
+                        let input = returnInputNotFilled([editTenSP, editSoluongSP, editGiaSP, editChitietSP, editHinhSP]);
+                        switch (input) {
+                            case editTenSP:
+                                input.value = productArray[index].name;
+                                console.log(`Complete edit name: ${input.value}`);
+                                break;
+                            case editSoluongSP:
+                                input.value = productArray[index].sl;
+                                console.log(`Complete edit quantity: ${input.value}`);
+                                break;
+                            case editGiaSP:
+                                input.value = productArray[index].gia;
+                                console.log(`Complete edit price: ${input.value}`);
+                                break;
+                            case editChitietSP:
+                                input.value = productArray[index].describe;
+                                console.log(`Complete edit description: ${input.value}`);
+                                break;
+                            case editHinhSP:
+                                input.src = productArray[index].imageSrc;
+                                console.log(`Complete edit image: ${input.value}`);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else return false;
             }
 
-            else {
-                // edit in the array
-                let index = findId(editIdSP.value, productArray);
-                productArray[index].name = editTenSP.value;
-                productArray[index].sl = editSoluongSP.value;
-                productArray[index].gia = editGiaSP.value;
-                productArray[index].describe = editChitietSP.value;
-                productArray[index].imageName = editHinhSP.value;
-                productArray[index].imageSrc = editHinhSP.src;
+            // if all of the values are filled
+            // update array
+            let index = findId(editIdSP.value, productArray);
+            console.log(`Updating array index ${index}`);
+            productArray[index].name = editTenSP.value;
+            productArray[index].sl = editSoluongSP.value;
+            productArray[index].gia = editGiaSP.value;
+            productArray[index].describe = editChitietSP.value;
+            productArray[index].imageSrc = editHinhSP.src;
+            console.log(productArray[index]);
 
-                try {
-                    // edit in local storage
-                    localStorage.setItem(`SP#${index + 1}`, JSON.stringify(productArray[index]));
-
-                    // edit in the table
-                    let rows = document.querySelectorAll("#product__list tr");
-                    for (let row of rows) {
-                        if (row.id === productArray[index].id) {
-                            row.innerHTML = `
+            try {
+                // update localStorage
+                console.log(`Updating local storage SP#${index + 1}`)
+                localStorage.setItem(`SP#${index + 1}`, JSON.stringify(productArray[index]));
+            }
+            catch (e) {
+                alert('Cannot submit data because of exceeding storage!');
+                productArray.splice(index, 1);
+                return false;
+            }
+            let rows = document.querySelectorAll("#product__list tr");
+            for (let row of rows) {
+                if (row.id == productArray[index].id) {
+                    row.innerHTML = `
                         <tr id="${productArray[index].id}">
                             <td>${productArray[index].id}</td>
                             <td>${productArray[index].name}</td>
@@ -309,19 +374,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             <td style="overflow-y: auto;">${productArray[index].describe}</td>
                             <td><img src="${productArray[index].imageSrc}" style="max-width: 100%;" alt="Photo of ${productArray[index].name}"></td>
                         </tr>
-                    `;
-                        }
-                    }
+                    `;    
+                    break;
                 }
-                catch (e) {
-                    alert('Cannot submit data because of exceeding storage!' + e);
-                    productArray.splice(index, 1);
-                }
-
-                // clear the input in the form
-                clearInput([editIdSP, editTenSP, editSoluongSP, editGiaSP, editChitietSP, editHinhSP]);
             }
+            clearInput([editIdSP, editTenSP, editSoluongSP, editGiaSP, editChitietSP, editHinhSP]);
+            
         });
+
 
         submitRemoveItem.addEventListener("click", function (event) {
             if (!inputFilled([removeIdSP])) {
@@ -335,7 +395,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             else {
                 let index = findId(removeIdSP.value, productArray);
-                console.log(index);
                 // are you sure to remove the product?
                 if (confirm(`Bạn có muốn xóa thông tin sau không?
 
@@ -344,6 +403,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 Giá: ${productArray[index].gia}
                 Chi tiết: ${productArray[index].describe}
             `)) {
+                    // update local storage
+                    console.log(`Removing key: SP#${index + 1}`);
+                    localStorage.removeItem(`SP#${index + 1}`);
+
                     let rows = document.querySelectorAll("#product__list tr");
                     for (let row of rows) {
                         if (row.id == productArray[index].id) {
@@ -351,10 +414,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             break;
                         }
                     }
-
-                    console.log(index);
-                    // update local storage
-                    localStorage.removeItem(`SP#${index + 1}`);
 
                     // update array
                     productArray.splice(index, 1);

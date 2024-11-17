@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form__row">
                                         <label for="form__sp-img">Hình SP</label><br>
-                                        <input type="file" id="form__sp-img" name="sp-img" accept="image/*" required />
+                                        <input type="file" id="form__sp-img" name="sp-img" accept="image/*" onchange="setTimeout(function(){changePreview();}, 500);" required />
                                         <!-- https://stackoverflow.com/questions/4328947/limit-file-format-when-using-input-type-file -->
                                     </div>
                                     <div id="form__submit" class="form__submit-style">
@@ -87,8 +87,8 @@
                                     </div>
                                 </div>
                                 <div style="border: 1px solid grey; border-radius: 5px; margin: 10px"></div>
-                                <div style="margin: 10px">
-                                    <img src="./image/no-photo-or-blank-image.jpg" alt="blank image">
+                                <div style="margin: 10px; display: flex; justify-content: center; align-items: center;">
+                                    <img src="./image/no-photo-or-blank-image.jpg" alt="blank image" class="form__preview">
                                 </div>
                             </form>
                         </div>    
@@ -112,28 +112,26 @@
                                 </div>
                                 <div class="form__row">
                                     <div class="form__label"><label for="form__edit-name">Tên SP</label></div>
-                                    <div class="form__input"><input type="text" name="edit-name" id="form__edit-name"
-                                            required></div>
+                                    <div class="form__input"><input type="text" name="edit-name" id="form__edit-name"></div>
                                 </div>
                                 <div class="form__row">
                                     <div class="form__label"><label for="form__edit-quantity">Số lượng</label></div>
                                     <div class="form__input"><input type="number" name="edit-quantity"
-                                            id="form__edit-quantity" required></div>
+                                            id="form__edit-quantity"></div>
                                 </div>
                                 <div class="form__row">
                                     <div class="form__label"><label for="form__edit-price">Giá SP</label></div>
                                     <div class="form__input"><input type="number" name="edit-price"
-                                            id="form__edit-price" required></div>
+                                            id="form__edit-price"></div>
                                 </div>
                                 <div class="form__row">
                                     <div class="form__label"><label for="form__edit-description">Chi tiết</label></div>
                                     <div class="form__input"><input type="text" name="edit-description"
-                                            id="form__edit-description" required></div>
+                                            id="form__edit-description"></div>
                                 </div>
                                 <div class="form__row">
                                     <div class="form__label"><label for="form__edit-img">Hình SP</label></div>
-                                    <div class="form__input"><input type="file" name="edit-img" id="form__edit-img"
-                                            required accept="image/*"></div>
+                                    <div class="form__input"><input type="file" name="edit-img" id="form__edit-img" accept="image/*"></div>
                                 </div>
                                 <div id="form__submit-edit-item" class="form__submit-style">
                                     <input type="submit" value="Sửa" />
