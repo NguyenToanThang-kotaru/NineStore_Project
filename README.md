@@ -9,11 +9,10 @@
 
 ### Function that are lacked
 
-- Function to lock customer (UI finished)
 - Function to automatically cut and crop the uploaded image.
 - Login using URL. (Tín will do it)
 - Show the statistic.
 - Function to filter orders, products, customers.
 - Function to show the time that the order is made.
-- Function to lock the customers.
+- Function to lock the customers (UI finished).
 - ...
