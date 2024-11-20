@@ -49,7 +49,7 @@ loginSubmit.addEventListener("click", (event) => {
 });
 var isLogin = localStorage.getItem("userLogin") ? true : false;
 function reloadPage() {
-  window.location.href = "index.html";
+  window.location.href = "Nineshop.html";
 }
 if (isLogin) {
   document.querySelector("li.login-btn").style.display =
