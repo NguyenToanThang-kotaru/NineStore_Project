@@ -11,3 +11,6 @@ closes.forEach((closebtn) => {
     closebtn.parentElement.parentElement.style.display = "none";
   });
 });
+function reloadPage() {
+  window.location.href = "Nineshop.html";
+}

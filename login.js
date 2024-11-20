@@ -47,3 +47,27 @@ loginSubmit.addEventListener("click", (event) => {
     }
   }
 });
+var isLogin = localStorage.getItem("userLogin") ? true : false;
+function reloadPage() {
+  window.location.href = "index.html";
+}
+if (isLogin) {
+  document.querySelector("li.login-btn").style.display =
+    "none";
+  document.querySelector("li.register-btn").style.display =
+    "none";
+  if (isAdmin) {
+    document.querySelector(".admin-item").style.display = "block";
+  }
+} else {
+  document.querySelector("li.info-btn").style.display =
+    "none";
+  document.querySelector("li.logout-btn").style.display =
+    "none";
+}
+function logOut() {
+  localStorage.removeItem("userLogin");
+  isLogin = false;
+  isAdmin = false;
+  window.location.href = "Nineshop.html";
+}

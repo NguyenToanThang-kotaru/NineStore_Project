@@ -1,9 +1,9 @@
 /* ------------------------------------- Register Page ------------------------------------ */
-.register {
+.register-page {
   display: none;
   height: 100vh;
 }
-.register .container {
+/* .register-page .container {
   padding: 50px 0;
   border-radius: 24px;
   background-color: #c4c4c4;
@@ -12,9 +12,14 @@
     200px 312px 223px 0px rgba(0, 0, 0, 0.05),
     89px 139px 165px 0px rgba(0, 0, 0, 0.09),
     22px 35px 91px 0px rgba(0, 0, 0, 0.1);
-}
+} */
+ .register-title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+ }
 .register-box {
-  width: 50%;
+  width: 1000px;
   margin: 0 auto;
   padding: 100px;
   border-radius: 28.458px;
@@ -22,19 +27,31 @@
   background: rgba(56, 56, 56, 0.28);
   backdrop-filter: blur(8.893229484558105px);
 }
-.name-label-register {
-  display: inline-block;
-  margin-top: 40px;
-}
 .email-label-register,
 .password-label-register {
   display: inline-block;
   margin-top: 16px;
 }
+.form-register-top {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+}
+.form-register-foot {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+}
+.register-submit-background {
+  width: 50%;
+  padding-left: 50px;
+}
 .register-box input {
   margin-top: 10px;
   display: flex;
-  width: 100%;
+  width: 200px;
   height: 32px;
   padding: 16px;
   align-items: center;
@@ -42,15 +59,18 @@
   border: 2px solid #fff;
   transition: 0.3s;
 }
-.form-register {
-  margin: 0 auto;
-  width: 250px;
+.form-register-right,
+.form-register-left {
+  width: 50%;
+  margin-left: 50px;
+}
+.form-register-left {
+  border-right: 1px solid;
 }
 .register-submit {
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 50px;
-  width: 100%;
+  width: 200px;
   height: 40px;
   justify-content: center;
   align-items: center;
@@ -63,7 +83,8 @@
   line-height: normal;
 }
 .login-inregister {
-  margin-top: 24px;
+  width: 50%;
+  padding-left: 50px;
 }
 .register-box .login-btn {
   color: #fff;
@@ -73,6 +94,7 @@
 }
 .register-box input:focus {
   border: 2px solid var(--success-color);
+  background-color: #d8f3ff;
 }
 .register-box input.error {
   border: 2px solid var(--error-color);

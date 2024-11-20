@@ -2,6 +2,11 @@
   display: none;
   height: 100vh;
 }
+.login-title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+ }
 .login-page .container {
   padding: 50px 0;
   border-radius: 24px;
