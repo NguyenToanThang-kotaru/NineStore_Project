@@ -1,0 +1,128 @@
+/* ------------------------------------- Register Page ------------------------------------ */
+.register {
+  display: none;
+  height: 100vh;
+}
+.register .container {
+  padding: 50px 0;
+  border-radius: 24px;
+  background-color: #c4c4c4;
+  box-shadow: 555px 868px 288px 0px rgba(0, 0, 0, 0),
+    355px 556px 264px 0px rgba(0, 0, 0, 0.01),
+    200px 312px 223px 0px rgba(0, 0, 0, 0.05),
+    89px 139px 165px 0px rgba(0, 0, 0, 0.09),
+    22px 35px 91px 0px rgba(0, 0, 0, 0.1);
+}
+.register-box {
+  width: 50%;
+  margin: 0 auto;
+  padding: 100px;
+  border-radius: 28.458px;
+  border: 2.134px solid rgba(168, 171, 175, 0.49);
+  background: rgba(56, 56, 56, 0.28);
+  backdrop-filter: blur(8.893229484558105px);
+}
+.name-label-register {
+  display: inline-block;
+  margin-top: 40px;
+}
+.email-label-register,
+.password-label-register {
+  display: inline-block;
+  margin-top: 16px;
+}
+.register-box input {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  height: 32px;
+  padding: 16px;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #fff;
+  transition: 0.3s;
+}
+.form-register {
+  margin: 0 auto;
+  width: 250px;
+}
+.register-submit {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 50px;
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 7.115px;
+  background: #3d3e3f;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: normal;
+}
+.login-inregister {
+  margin-top: 24px;
+}
+.register-box .login-btn {
+  color: #fff;
+  font-size: 1.6rem;
+  border-bottom: none;
+  margin-left: 10px;
+}
+.register-box input:focus {
+  border: 2px solid var(--success-color);
+}
+.register-box input.error {
+  border: 2px solid var(--error-color);
+}
+.register-error {
+  margin-top: 5px;
+  font-size: 1.4rem;
+  color: var(--error-color);
+}
+.login-success-box,
+.register-success-box {
+  width: 800px;
+  background-color: #fff;
+  padding: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  cursor: default;
+  text-align: center;
+  vertical-align: middle;
+  transition: 1s;
+  z-index: 11;
+}
+.fa-circle-check {
+  font-size: 50px;
+  color: #12d823;
+}
+.success-title {
+  margin-top: 20px;
+  font-size: 50px;
+  font-weight: 700;
+}
+.success-btn {
+  width: 200px;
+  padding: 20px;
+  font-size: 30px;
+  padding: 20px;
+  border: 2px solid #0099ff;
+  border-radius: 10px;
+  margin: 20px auto 0;
+  background-color: #43b4ff;
+  cursor: pointer;
+}
+.login-success .success-btn {
+  width: 300px;
+}
+#phone::-webkit-inner-spin-button,
+#phone::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
