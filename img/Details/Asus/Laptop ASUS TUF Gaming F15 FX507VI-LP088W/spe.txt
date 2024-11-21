@@ -1,0 +1,9 @@
+36.990.000đ
+Bộ xử lý:	Intel Core i7-13620H (2.4 GHz, 24M Cache, up to 4.9 GHz, 10 lõi: 6 P-cores và 4 E-cores)
+Card màn hình:	NVIDIA GeForce RTX 4070 8GB GDDR6 Intel Iris Xe Graphics
+Màn hình:	15.6 inches
+RAM:	        16GB DDR5-4800 SO-DIMM
+Bộ nhớ trong:	512GB PCIe 4.0 NVMe M.2 SSD 
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối:	Wi-Fi 6(802.11ax) (Dual band) 2*2/Bluetooth 5.1
+Pin:            90WHrs, 4S1P, 4-cell Li-ion

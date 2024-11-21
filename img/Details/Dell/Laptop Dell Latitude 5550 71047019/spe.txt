@@ -1,0 +1,10 @@
+31.490.000đ
+Bộ xử lý:	Intel Core Ultra 7 165U (12 MB cache, 12 lõi, 14 luồng, up to 4.9 GHz Turbo)
+Card màn hình:	Intel UHD Graphics
+Màn hình:	15.6 inches
+RAM:	        16GB DDR5 5600 MT/s
+Bộ nhớ trong:	512 GB, M.2 2230, TLC, Gen 4 PCIe NVMe, SSD 
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối: Intel Wi-Fi 6E AX211, 2x2, 802.11ax/Bluetooth 5.3
+Pin:            3-cell, 54 Wh
+ 

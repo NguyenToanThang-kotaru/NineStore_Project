@@ -1,0 +1,9 @@
+45.990.000đ
+Bộ xử lý:	Intel Core Ultra 7 155H (1.4 GHz, 24MB Cache, up to 4.8 GHz, 16 lõi, 22 luồng)
+Card màn hình:	Intel Arc Graphics
+Màn hình:	14 inches
+RAM:	        16GB LPDDR5X Onboard
+Bộ nhớ trong:	512GB M.2 NVMe PCIe 4.0 SSD
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối:	Wi-Fi 6E(802.11ax) (Dual band) 2*2/Bluetooth 5.3
+Pin:            75WHrs, 4S1P, 4-cell Li-ion

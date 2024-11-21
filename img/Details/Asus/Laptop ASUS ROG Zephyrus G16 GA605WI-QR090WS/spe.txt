@@ -1,0 +1,9 @@
+77.990.000đ
+Bộ xử lý:	AMD Ryzen AI 9 HX 370 2.0GHz (36MB Cache, up to 5.1GHz, 12 lõi, 24 luồng)AMD Ryzen AI up to 81 TOPs
+Card màn hình:	NVIDIA GeForce RTX 4070 8GB GDDR6 AMD Radeon Graphics
+Màn hình:	16 inches
+RAM:	        32GB LPDDR5X Onboard
+Bộ nhớ trong:	1TB PCIe 4.0 NVMe M.2 SSD
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối:	Wi-Fi 7(802.11be) (Triple band) 2*2/Bluetooth 5.4
+Pin:            90WHrs, 4S1P, 4-cell Li-ion

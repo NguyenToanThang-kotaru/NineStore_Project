@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="Footter.css" />
     <link rel="stylesheet" href="registerNineShop.css" />
     <link rel="stylesheet" href="login.css" />
-    <link rel="stylesheet" href="macitem.css">
+    <link rel="stylesheet" href="macitem.css" />
+    <link rel="stylesheet" href="producthome.css" />
   </head>
 
   <body>
@@ -61,7 +62,9 @@
                 <li class="info-btn">
                   <a href="#">Thông tin của bạn</a>
                 </li>
-                <li class="logout-btn" onclick="logOut()"><a href="#">Đăng xuất</a></li>
+                <li class="logout-btn" onclick="logOut()">
+                  <a href="#">Đăng xuất</a>
+                </li>
               </ul>
             </li>
             <li style="padding: 0 15px" class="fa-solid fa-cart-shopping"></li>
@@ -96,144 +99,1736 @@
       </div>
 
       <!-- Product when guest at home  -->
-      <div id="ProductHome">
-        <div class="mac_Product2" style="cursor: pointer;">
-          MacBook |
+      <section id="all-product">
+        <div class="container">
+          <div class="type-list">
+            <button onclick="showDELL(event)" class="type-button">
+              <img
+                src="./img/brand_icon/dell.png"
+                class="type-item"
+                alt="DELL"
+              />
+            </button>
+            <button onclick="showASUS(event)" class="type-button">
+              <img
+                src="./img/brand_icon/asus.jpg"
+                class="type-item"
+                alt="ASUS"
+              />
+            </button>
+            <button class="type-button">
+              <img src="./img/brand_icon/hp.png" class="type-item" alt="hp" />
+            </button>
+          </div>
+          <div id="product-list" class="all-product-list">
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 2 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 1 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- DELL 3 -->
+            <section class="product all-product-item dell">
+              <img
+                src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                alt=""
+                class="product-img"
+              />
+              <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
+              <div class="product-brand" style="display: none">Dell</div>
+              <span class="product-price">28.990.000</span
+              ><sup class="sale-price">₫</sup>
+              <!-- <div class="product-original-price">
+                <span class="original-price">16.990.000</span
+                ><sup class="original-price">₫</sup>
+              </div> -->
+              <div class="product-operation">
+                <i
+                  class="fa-regular fa-eye more-details"
+                  onclick="showDetail(this)"
+                >
+                  <div class="note">Xem thêm thông tin</div>
+                </i>
+                <i class="fa-solid fa-cart-shopping add-cart">
+                  <div class="note">Thêm vào giỏ hàng</div>
+                </i>
+              </div>
+              <div class="overlay">
+                <div class="detail-box">
+                  <i class="fa-solid fa-rectangle-xmark close"></i>
+                  <section class="detail-head">
+                    <img
+                      src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
+                      alt=""
+                      class="detail-img"
+                    />
+                    <div class="detail-title">
+                      <h2 class="detail-heading">
+                        Laptop Dell Inspiron 14 5440 71034770
+                      </h2>
+                      <span class="detail-price">16.490.000</span
+                      ><sup class="sale-price">₫</sup>
+                      <div class="product-quantity">
+                        Kho: <span class="product-quantity-value">3</span>
+                      </div>
+                      <!-- <div class="detail-original-price">
+                        <span class="detail-original-price-value"
+                          >16.990.000</span
+                        ><sup class="sale-price">₫</sup>
+                      </div> -->
+                      <div class="detail-quantity">
+                        <i
+                          class="fa-solid fa-circle-minus desc-quantity"
+                          onclick="decreaseQuantity(this)"
+                        ></i>
+                        <input
+                          type="number"
+                          class="detail-quantity-value"
+                          value="1"
+                          min="1"
+                        />
+                        <i
+                          class="fa-solid fa-circle-plus plus-quantity"
+                          onclick="increaseQuantity(this)"
+                        ></i>
+                      </div>
+                      <div class="detail-btn">
+                        <button class="add-cart-btn">Thêm vào giỏ hàng</button>
+                        <button class="buy-btn">Mua ngay</button>
+                      </div>
+                    </div>
+                  </section>
+                  <h3 class="detail-heading">Thông tin chi tiết</h3>
+                  <table class="detail-table">
+                    <tr>
+                      <td>Bộ xử lý:</td>
+                      <td class="CPU">Core 7-150U</td>
+                    </tr>
+                    <tr>
+                      <td>Card màn hình:</td>
+                      <td class="card">MX570A 2GB GDDR6</td>
+                    </tr>
+                    <tr>
+                      <td>Màn hình:</td>
+                      <td class="screen">14 inches</td>
+                    </tr>
+                    <tr>
+                      <td>RAM:</td>
+                      <td class="RAM">16GB DDR5 5200MHz</td>
+                    </tr>
+                    <tr>
+                      <td>Bộ nhớ trong</td>
+                      <td class="ROM">1TB</td>
+                    </tr>
+                    <tr>
+                      <td>Hệ điều hành:</td>
+                      <td class="OS">Windows 11 Home + OFFICE</td>
+                    </tr>
+                    <tr>
+                      <td>Hỗ trợ kết nối:</td>
+                      <td class="network">Wi-Fi 11ax/Bluetooth v5.3</td>
+                    </tr>
+                    <tr>
+                      <td>Pin:</td>
+                      <td class="pin">3-cell, 41Wh</td>
+                    </tr>
+                    <tr>
+                      <td>Khối lượng:</td>
+                      <td class="weight">1.9 kg</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="listPage"></div>
         </div>
-        <ul class="StartProducts">
-          <li>
-            <img
-              src="./img/macbook/1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
-              width="60%"
-              alt="sp1"
-            />
-            <p>MacBook Air M1 13 inch 8GB/256GB Chính Hãng</p>
-            <div>18.000.000 đ</div>
-          </li>
-          <li>
-            <img
-              src="./img/macbook/1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
-              width="60%"
-              alt="sp1"
-            />
-            <p>MacBook Air M1 13 inch 8GB/256GB Chính Hãng</p>
-            <div>18.000.000 đ</div>
-          </li>
-
-          <li>
-            <img
-              src="./img/macbook/1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
-              width="60%"
-              alt="sp1"
-            />
-            <p>MacBook Air M1 13 inch 8GB/256GB Chính Hãng</p>
-            <div>18.000.000 đ</div>
-          </li>
-
-          <li>
-            <img
-              src="./img/macbook/1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
-              width="60%"
-              alt="sp1"
-            />
-            <p>MacBook Air M1 13 inch 8GB/256GB Chính Hãng</p>
-            <div>18.000.000 đ</div>
-          </li>
-        </ul>
-
-        <head>
-          Dell |
-        </head>
-        <ul class="StartProducts">
-          <li>
-            <img
-              src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Dell Inspiron 14 5440 Core 7 150U Chính Hãng</p>
-            <div>23.900.000 đ</div>
-          </li>
-          <li>
-            <img
-              src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Dell Inspiron 14 5440 Core 7 150U Chính Hãng</p>
-            <div>23.900.000 đ</div>
-          </li>
-
-          <li>
-            <img
-              src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Dell Inspiron 14 5440 Core 7 150U Chính Hãng</p>
-            <div>23.900.000 đ</div>
-          </li>
-
-          <li>
-            <img
-              src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Dell Inspiron 14 5440 Core 7 150U Chính Hãng</p>
-            <div>23.900.000 đ</div>
-          </li>
-        </ul>
-
-        <head>
-          Asus |
-        </head>
-        <ul class="StartProducts">
-          <li>
-            <img
-              src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Asus Vivobook Go 15 E1504FA R5 7520U (NJ776W)</p>
-            <div>12.590.000 đ</div>
-          </li>
-          <li>
-            <img
-              src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Asus Vivobook Go 15 E1504FA R5 7520U (NJ776W)</p>
-            <div>12.590.000 đ</div>
-          </li>
-
-          <li>
-            <img
-              src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Asus Vivobook Go 15 E1504FA R5 7520U (NJ776W)</p>
-            <div>12.590.000 đ</div>
-          </li>
-
-          <li>
-            <img
-              src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg"
-              width="60%"
-              alt="sp1"
-            />
-            <p>Asus Vivobook Go 15 E1504FA R5 7520U (NJ776W)</p>
-            <div>12.590.000 đ</div>
-          </li>
-        </ul>
-      </div>
+      </section>
       <!-- Footer -->
       <div id="allFooter">
         <div class="footer">
           <div class="logo-footer">
-            <img src="./img/download.jpg" style="width: 100%" alt="logo-footer" />
+            <img
+              src="./img/download.jpg"
+              style="width: 100%"
+              alt="logo-footer"
+            />
           </div>
           <div class="list-footer1">
             <ul>
@@ -458,67 +2053,97 @@
     <div id="container_Mac">
       <div id="BigTitle_Mac">Macbook</div>
       <div id="captalog_mac">
-          <div id="filter">
-              <div class="just_space_right"><i class="fa-solid fa-filter"></i> Lọc sản phẩm</div>
-              <div style="position: absolute;right: 0px;display: flex;">
-                  <div class="just_space"><i class="fa-solid fa-down-long"></i>Giá từ cao đến thấp</div>
-                  <div class="just_space"><i class="fa-solid fa-up-long"></i>Giá từ thấp đến cao   </div>
-              </div>
+        <div id="filter">
+          <div class="just_space_right">
+            <i class="fa-solid fa-filter"></i> Lọc sản phẩm
+          </div>
+          <div style="position: absolute; right: 0px; display: flex">
+            <div class="just_space">
+              <i class="fa-solid fa-down-long"></i>Giá từ cao đến thấp
+            </div>
+            <div class="just_space">
+              <i class="fa-solid fa-up-long"></i>Giá từ thấp đến cao
+            </div>
+          </div>
+        </div>
+
+        <div id="show_item">
+          <div class="Mac_Item">
+            <img
+              class="item"
+              src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
+              alt=""
+            />
+            <div class="name_Product">Macbook Air M1</div>
+            <div class="price_Product">16.900.000</div>
           </div>
 
-          <div id="show_item">
-                <div class="Mac_Item">
-                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
-                    <div class="name_Product">Macbook Air M1</div>
-                    <div class="price_Product">16.900.000</div>
-                </div>
-
-                <div class="Mac_Item">
-                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
-                    <div class="name_Product">Macbook Air M1</div>
-                    <div class="price_Product">16.900.000</div>
-                </div>
-                
-                <div class="Mac_Item">
-                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
-                    <div class="name_Product">Macbook Air M1</div>
-                    <div class="price_Product">16.900.000</div>
-                </div>
-
-                <div class="Mac_Item">
-                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
-                    <div class="name_Product">Macbook Air M1</div>
-                    <div class="price_Product">16.900.000</div>
-                </div>
-
-                <div class="Mac_Item">
-                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
-                    <div class="name_Product">Macbook Air M1</div>
-                    <div class="price_Product">16.900.000</div>
-                </div>
-                
-                <div class="Mac_Item">
-                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
-                    <div class="name_Product">Macbook Air M1</div>
-                    <div class="price_Product">16.900.000</div>
-                </div>
+          <div class="Mac_Item">
+            <img
+              class="item"
+              src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
+              alt=""
+            />
+            <div class="name_Product">Macbook Air M1</div>
+            <div class="price_Product">16.900.000</div>
           </div>
 
-          <div class="page-button">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>...</button>
-            <button>></button>
+          <div class="Mac_Item">
+            <img
+              class="item"
+              src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
+              alt=""
+            />
+            <div class="name_Product">Macbook Air M1</div>
+            <div class="price_Product">16.900.000</div>
           </div>
+
+          <div class="Mac_Item">
+            <img
+              class="item"
+              src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
+              alt=""
+            />
+            <div class="name_Product">Macbook Air M1</div>
+            <div class="price_Product">16.900.000</div>
+          </div>
+
+          <div class="Mac_Item">
+            <img
+              class="item"
+              src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
+              alt=""
+            />
+            <div class="name_Product">Macbook Air M1</div>
+            <div class="price_Product">16.900.000</div>
+          </div>
+
+          <div class="Mac_Item">
+            <img
+              class="item"
+              src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp"
+              alt=""
+            />
+            <div class="name_Product">Macbook Air M1</div>
+            <div class="price_Product">16.900.000</div>
+          </div>
+        </div>
+
+        <div class="page-button">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>...</button>
+          <button>></button>
+        </div>
       </div>
     </div>
-
 
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>
     <script src="./slideshow.js"></script>
     <script src="./register.js"></script>
     <script src="./login.js"></script>
+    <script src="./producthome.js"></script>
   </body>
 </html>

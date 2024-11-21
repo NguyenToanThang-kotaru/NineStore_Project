@@ -1,0 +1,9 @@
+18.990.000đ
+Bộ xử lý:	Intel Core i7-1355U thế hệ thứ 13 / 10 nhân 12 luồng / 1.20 GHz to 5.0GHz, 12MB
+Card màn hình:	Intel Iris Xe Graphics
+Màn hình:	15.6 inches
+RAM:	        16GB DDR4 2666 MHz
+Bộ nhớ trong:	512GB SSD (1 Slot SSD Tối đa 1TB)
+Hệ điều hành:	Free OS
+Hỗ trợ kết nối:	Realtek Wi-Fi 5 RTL8821CE, 802.11ac/Bluetooth 5.0
+Pin:            41Wh , 3Cell

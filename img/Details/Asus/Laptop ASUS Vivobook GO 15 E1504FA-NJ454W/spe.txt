@@ -1,0 +1,9 @@
+12.390.000đ
+Bộ xử lý:	AMD Ryzen 5 7520U (4 lõi / 8 luồng, 4MB cache, up to 4.3 GHz max boost)
+Card màn hình:	AMD Radeon Graphics
+Màn hình:	15.6 inches
+RAM:	        16GB LPDDR5 Onboard
+Bộ nhớ trong:	512GB M.2 NVMe PCIe 3.0 SSD
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối:	Wi-Fi 6E(802.11ax) (Dual band) 1*1/Bluetooth 5
+Pin:            42WHrs, 3S1P, 3-cell Li-ion

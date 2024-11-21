@@ -1,0 +1,9 @@
+25.890.000đ
+Bộ xử lý:	CPU Apple M3 8 Lõi Neural Engine 16 lõi
+Card màn hình:	GPU 8 Lõi
+Màn hình:	13.6 inches
+RAM:	        8GB
+Bộ nhớ trong:	256GB SSD
+Hệ điều hành:	MacOS
+Hỗ trợ kết nối:	Wi-Fi 6E
+Pin:            Lithium polymer      

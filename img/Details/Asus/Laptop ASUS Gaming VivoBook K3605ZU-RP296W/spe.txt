@@ -1,0 +1,9 @@
+23.290.000đ
+Bộ xử lý:	Intel Core i5-12500H Processor 2.5 GHz (18M Cache, up to 4.5 GHz, 4P+8E lõi)
+Card màn hình:	NVIDIA GeForce RTX 4050 6GB GDDR6
+Màn hình:	16 inches
+RAM:	        32GB DDR4 on board
+Bộ nhớ trong:	512GB M.2 NVMe PCIe 4.0 SSD
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối:	Wi-Fi 6E(802.11ax) (Dual band) 2*2/Bluetooth 5.3
+Pin:            70WHrs, 3S1P, 3-cell Li-ion

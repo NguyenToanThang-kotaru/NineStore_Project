@@ -1,0 +1,9 @@
+16.490.000đ
+Bộ xử lý:	Intel Core i5-1235U (12 MB cache, 10 lõi, 12 luồng, up to 4.40 GHz Turbo)
+Card màn hình:	Intel Iris Xe Graphics
+Màn hình:	15.6 inches
+RAM:	        16GB DDR4 3200 MT/s
+Bộ nhớ trong:	512GB, M.2 2230, QLC PCIe Gen 4 NVMe 
+Hệ điều hành:	Windows 11 Home
+Hỗ trợ kết nối: Wi-Fi 6E (6 if 6E unavailable) AX211, 2x2, 802.11ax/Bluetooth 5.3
+Pin:            3 cell, 42 Wh, có khả năng sạc nhanh
