@@ -57,7 +57,7 @@ body{
 }
 #menudacap{
     position: absolute;
-    bottom: -85px;
+    bottom: -80px;
     left: 0px;
     padding: 0px;
     padding-right: 0px;
@@ -135,6 +135,7 @@ body{
     list-style-type: none;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
+
 .StartProducts li img:hover{
     background-color: rgb(223, 218, 218);
     transform: scale(1.05);
@@ -145,6 +146,10 @@ body{
 }
 .StartProducts li{
     padding: 30px;
+}
+
+.mac_Product{
+    cursor: pointer;
 }
 /* Footer */
 #Footer{

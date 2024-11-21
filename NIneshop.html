@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="Footter.css" />
     <link rel="stylesheet" href="registerNineShop.css" />
     <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="macitem.css">
   </head>
 
   <body>
@@ -25,19 +26,19 @@
       <!-- Topmenu -->
       <div id="container">
         <div id="Topmenu">
-          <a href="sourcecode.html" id="leftmenu">
-            <img src="./img/download.jpg" width="130px" alt="logo" />
+          <a href="Nineshop.html" id="leftmenu">
+            <img src="./img/download.jpg" width="130px" alt="logo" ah />
           </a>
           <ul id="centermenu">
             <li>
-              <a href="NIneshop.html">Laptop</a>
+              <a href="Nineshop.html">Laptop</a>
               <ul id="menudacap">
-                <li><a href="NIneshop.html">Asus</a></li>
-                <li><a href="NIneshop.html">Macbook</a></li>
-                <li><a href="NIneshop.html">Dell</a></li>
+                <li><a href="Nineshop.html">Asus</a></li>
+                <li><a href="Nineshop.html">Macbook</a></li>
+                <li><a href="Nineshop.html">Dell</a></li>
               </ul>
             </li>
-            <li>MacBook</li>
+            <li class="mac_Product">MacBook</li>
             <li>Sản phẩm cũ</li>
             <li>Đang giảm giá</li>
             <li>More</li>
@@ -68,7 +69,7 @@
         </div>
       </div>
       <!-- Slideshow -->
-      <div style="display: flex; justify-content: center">
+      <div id="Slideshow" style="display: flex; justify-content: center">
         <div id="slideshow">
           <div class="imagelist">
             <img
@@ -96,9 +97,9 @@
 
       <!-- Product when guest at home  -->
       <div id="ProductHome">
-        <head>
+        <div class="mac_Product2" style="cursor: pointer;">
           MacBook |
-        </head>
+        </div>
         <ul class="StartProducts">
           <li>
             <img
@@ -227,61 +228,55 @@
             <div>12.590.000 đ</div>
           </li>
         </ul>
-
-        <div class="page-button">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>...</button>
-          <button>></button>
-        </div>
       </div>
       <!-- Footer -->
-      <div class="footer">
-        <div class="logo-footer">
-          <img src="./img/download.jpg" style="width: 100%" alt="logo-footer" />
-        </div>
-        <div class="list-footer1">
-          <ul>
-            <li class="list-footer-high">Thông tin sản phẩm</li>
+      <div id="allFooter">
+        <div class="footer">
+          <div class="logo-footer">
+            <img src="./img/download.jpg" style="width: 100%" alt="logo-footer" />
+          </div>
+          <div class="list-footer1">
+            <ul>
+              <li class="list-footer-high">Thông tin sản phẩm</li>
 
-            <li class="list-footer">Kiểm tra sản phẩm</li>
-            <li class="list-footer">Hướng dẫn bảo hành</li>
-            <li class="list-footer">Quy định đổi Laptop</li>
-          </ul>
-        </div>
-        <div class="list-footer2">
-          <ul>
-            <li class="list-footer-high">Giới thiệu</li>
+              <li class="list-footer">Kiểm tra sản phẩm</li>
+              <li class="list-footer">Hướng dẫn bảo hành</li>
+              <li class="list-footer">Quy định đổi Laptop</li>
+            </ul>
+          </div>
+          <div class="list-footer2">
+            <ul>
+              <li class="list-footer-high">Giới thiệu</li>
 
-            <li class="list-footer">Quan niệm về Laptop</li>
-            <li class="list-footer">Danh sách cửa hàng</li>
-            <li class="list-footer">Dành cho đại lý</li>
-          </ul>
-        </div>
-        <div class="list-footer3">
-          <ul>
-            <li class="list-footer-high">Thông tin liên hệ</li>
+              <li class="list-footer">Quan niệm về Laptop</li>
+              <li class="list-footer">Danh sách cửa hàng</li>
+              <li class="list-footer">Dành cho đại lý</li>
+            </ul>
+          </div>
+          <div class="list-footer3">
+            <ul>
+              <li class="list-footer-high">Thông tin liên hệ</li>
 
-            <li class="list-footer">Địa chỉ: 273 An Dương Vương P1</li>
-            <li class="list-footer">Quận 5, TPHCM</li>
-            <li class="list-footer">Số điện thoại: 123456789</li>
-          </ul>
-        </div>
-      </div>
-      <footer id="Footer">
-        <div id="Subscribe">
-          <div>Nhập email để nhận được những thông báo mới nhất</div>
-          <div>
-            <input
-              id="InputFooter"
-              type="text"
-              name="username"
-              placeholder="Nhập Email"
-            />
+              <li class="list-footer">Địa chỉ: 273 An Dương Vương P1</li>
+              <li class="list-footer">Quận 5, TPHCM</li>
+              <li class="list-footer">Số điện thoại: 123456789</li>
+            </ul>
           </div>
         </div>
-      </footer>
+        <footer id="Footer">
+          <div id="Subscribe">
+            <div>Nhập email để nhận được những thông báo mới nhất</div>
+            <div>
+              <input
+                id="InputFooter"
+                type="text"
+                name="username"
+                placeholder="Nhập Email"
+              />
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
     <!---------------------------- register ------------------------->
     <div class="register-page">
@@ -459,6 +454,67 @@
         </div>
       </div>
     </div>
+    <!---------------------------- Product_Macbook-Menu ------------------------->
+    <div id="container_Mac">
+      <div id="BigTitle_Mac">Macbook</div>
+      <div id="captalog_mac">
+          <div id="filter">
+              <div class="just_space_right"><i class="fa-solid fa-filter"></i> Lọc sản phẩm</div>
+              <div style="position: absolute;right: 0px;display: flex;">
+                  <div class="just_space"><i class="fa-solid fa-down-long"></i>Giá từ cao đến thấp</div>
+                  <div class="just_space"><i class="fa-solid fa-up-long"></i>Giá từ thấp đến cao   </div>
+              </div>
+          </div>
+
+          <div id="show_item">
+                <div class="Mac_Item">
+                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
+                    <div class="name_Product">Macbook Air M1</div>
+                    <div class="price_Product">16.900.000</div>
+                </div>
+
+                <div class="Mac_Item">
+                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
+                    <div class="name_Product">Macbook Air M1</div>
+                    <div class="price_Product">16.900.000</div>
+                </div>
+                
+                <div class="Mac_Item">
+                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
+                    <div class="name_Product">Macbook Air M1</div>
+                    <div class="price_Product">16.900.000</div>
+                </div>
+
+                <div class="Mac_Item">
+                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
+                    <div class="name_Product">Macbook Air M1</div>
+                    <div class="price_Product">16.900.000</div>
+                </div>
+
+                <div class="Mac_Item">
+                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
+                    <div class="name_Product">Macbook Air M1</div>
+                    <div class="price_Product">16.900.000</div>
+                </div>
+                
+                <div class="Mac_Item">
+                    <img class="item" src=".\img\macbook\1682044807859_thumb_macbook_air_m1_8gb_256gb_didongviet.webp" alt="">
+                    <div class="name_Product">Macbook Air M1</div>
+                    <div class="price_Product">16.900.000</div>
+                </div>
+          </div>
+
+          <div class="page-button">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>...</button>
+            <button>></button>
+          </div>
+      </div>
+    </div>
+
+
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>
     <script src="./slideshow.js"></script>
