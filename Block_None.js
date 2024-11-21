@@ -45,7 +45,7 @@ active_mac2.addEventListener('click',Macproduct_open)
 
 function Macproduct_open(){
     SlideShow.style.display = "none";
-    ProductHome.replaceWith(ProductMac);  
+    ProductHome.replaceWith(ProductMac);  //replaceWith là hàm để đổi thẻ
     ProductMac.style.display = "block";
     scrollHead()
 }

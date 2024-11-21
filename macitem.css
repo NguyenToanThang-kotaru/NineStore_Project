@@ -1,7 +1,7 @@
 #container_Mac{
     width: 80%;
     text-align: center;
-    display: none;
+    /* display: none; */
     margin: 0 auto;
     margin-top: 58px;
 }
