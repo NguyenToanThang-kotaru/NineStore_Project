@@ -1,0 +1,25 @@
+#container_Asus{
+    width: 80%;
+    text-align: center;
+     display: none;
+    margin: 0 auto;
+    margin-top: 58px;
+}
+#BigTitle_Asus{
+    font-size: xx-large;
+    color: red;
+    border-top: 0.5px solid black;
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+}
+/* #captalog_asus{
+    border: 2px solid black;
+}  */
+
+.Asus_Item{
+    width: calc(((83%)/3));
+    margin: 30px;
+    cursor: pointer;
+    /* border: 2px solid black; */
+}

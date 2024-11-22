@@ -26,6 +26,7 @@ body{
     display: flex;
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 #leftmenu{
@@ -73,12 +74,14 @@ body{
     padding-right: 100px;
     text-align: left;
     border-bottom: 1px solid#111010 ;
+    cursor: pointer;
 }
 #container #Topmenu #centermenu li:hover #menudacap{
     display: block;
 }
 #rightmenu{
     display: flex;
+    cursor: pointer;
 }
 #rightmenu li{
     list-style-type: none;
@@ -114,11 +117,14 @@ body{
 #Topmenu li{
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
+
 #Topmenu li:hover{
     background-color: rgb(204, 202, 202);
-    transform: scale(1.05);
+    transform: scale(1.05); 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
+    display: block;
+} 
+
 .container{
     padding: 4rem;
 }

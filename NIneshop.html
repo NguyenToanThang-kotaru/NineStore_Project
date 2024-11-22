@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="Footter.css" />
     <link rel="stylesheet" href="registerNineShop.css" />
     <link rel="stylesheet" href="login.css" />
-    <link rel="stylesheet" href="macitem.css" />
-    <link rel="stylesheet" href="producthome.css" />
+    <link rel="stylesheet" href="macitem.css"/>
   </head>
 
   <body>
@@ -34,9 +33,9 @@
             <li>
               <a href="Nineshop.html">Laptop</a>
               <ul id="menudacap">
-                <li><a href="Nineshop.html">Asus</a></li>
-                <li><a href="Nineshop.html">Macbook</a></li>
-                <li><a href="Nineshop.html">Dell</a></li>
+                <li class="asus_Product">Asus</li>
+                <li class="mac_Product3">Macbook</li>
+                <li class="dell_Product">Dell</li>
               </ul>
             </li>
             <li class="mac_Product">MacBook</li>
@@ -86,14 +85,6 @@
               alt=""
             />
             <img class="imageslide" src="./img/nen.png" alt="" />
-          </div>
-          <div id="button">
-            <div class="btn-left BTN">
-              <i class="fa-solid fa-arrow-left"></i>
-            </div>
-            <div class="btn-right BTN">
-              <i class="fa-solid fa-arrow-right"></i>
-            </div>
           </div>
         </div>
       </div>
@@ -1951,7 +1942,10 @@
     <!---------------------------- register ------------------------->
     <div class="register-page">
       <div class="container">
-        <div class="register-box">
+        <div class="register-box" style="position: relative;">
+        <div class="esc-register">
+           <i class="fa-solid fa-x"></i>
+        </div>
           <h1 class="register-title">Đăng ký</h1>
           <form class="form-register">
             <div class="form-register-top">
@@ -2086,6 +2080,9 @@
     <div class="login-page">
       <div class="container">
         <div class="login-box">
+          <div class="esc-register">
+            <i class="fa-solid fa-x"></i>
+          </div>
           <h1 class="login-title">Đăng nhập</h1>
           <form class="form-login">
             <label for="email-login" class="label-login email-label-login"
@@ -2213,6 +2210,7 @@
         </div>
       </div>
     </div>
+
 
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>

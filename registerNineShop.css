@@ -27,6 +27,23 @@
   background: rgba(56, 56, 56, 0.28);
   backdrop-filter: blur(8.893229484558105px);
 }
+
+.esc-register{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.esc-register :hover{
+  transform: scale(1.2);
+  color: #fff;
+}
+
+.esc-register:active{
+  transform: scale(1.1);
+}
+
 .email-label-register,
 .password-label-register {
   display: inline-block;
