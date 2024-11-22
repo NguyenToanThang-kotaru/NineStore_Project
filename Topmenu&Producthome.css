@@ -19,6 +19,7 @@ body{
     justify-content: space-between;       
     text-align: center;  
     align-items: center;
+    cursor: pointer;
 }   
 #centermenu{
     list-style: none;
@@ -97,7 +98,7 @@ body{
     display: none;
 }
 #menudacap2 li{
-    padding: 5px;
+    padding: 5.5px;
     border-bottom: 1px solid black;
 }
 #menudacap2 li a{

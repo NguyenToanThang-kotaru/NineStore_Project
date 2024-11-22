@@ -1,9 +1,9 @@
 #container_Mac{
     width: 80%;
     text-align: center;
-    /* display: none; */
     margin: 0 auto;
     margin-top: 58px;
+    display:none;
 }
 #BigTitle_Mac{
     font-size: xx-large;
