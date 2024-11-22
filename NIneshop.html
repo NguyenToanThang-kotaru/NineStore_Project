@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="registerNineShop.css" />
     <link rel="stylesheet" href="login.css" />
     <link rel="stylesheet" href="macitem.css">
+    <link rel="stylesheet" href="asusitem.css">
+    <link rel="stylesheet" href="dellitem.css">
   </head>
 
   <body>
@@ -33,9 +35,9 @@
             <li>
               <a href="Nineshop.html">Laptop</a>
               <ul id="menudacap">
-                <li><a href="Nineshop.html">Asus</a></li>
-                <li><a href="Nineshop.html">Macbook</a></li>
-                <li><a href="Nineshop.html">Dell</a></li>
+                <li class="asus_Product">Asus</li>
+                <li class="mac_Product3">Macbook</li>
+                <li class="dell_Product">Dell</li>
               </ul>
             </li>
             <li class="mac_Product">MacBook</li>
@@ -83,14 +85,6 @@
               alt=""
             />
             <img class="imageslide" src="./img/nen.png" alt="" />
-          </div>
-          <div id="button">
-            <div class="btn-left BTN">
-              <i class="fa-solid fa-arrow-left"></i>
-            </div>
-            <div class="btn-right BTN">
-              <i class="fa-solid fa-arrow-right"></i>
-            </div>
           </div>
         </div>
       </div>
@@ -141,9 +135,9 @@
           </li>
         </ul>
 
-        <head>
+        <div class="dell_Product2" style="cursor: pointer;">
           Dell |
-        </head>
+        </div>
         <ul class="StartProducts">
           <li>
             <img
@@ -185,9 +179,10 @@
           </li>
         </ul>
 
-        <head>
+        <div class="asus_Product2" style="cursor: pointer;">
           Asus |
-        </head>
+        </div>
+
         <ul class="StartProducts">
           <li>
             <img
@@ -281,7 +276,10 @@
     <!---------------------------- register ------------------------->
     <div class="register-page">
       <div class="container">
-        <div class="register-box">
+        <div class="register-box" style="position: relative;">
+        <div class="esc-register">
+           <i class="fa-solid fa-x"></i>
+        </div>
           <h1 class="register-title">Đăng ký</h1>
           <form class="form-register">
             <div class="form-register-top">
@@ -416,6 +414,9 @@
     <div class="login-page">
       <div class="container">
         <div class="login-box">
+          <div class="esc-register">
+            <i class="fa-solid fa-x"></i>
+          </div>
           <h1 class="login-title">Đăng nhập</h1>
           <form class="form-login">
             <label for="email-login" class="label-login email-label-login"
@@ -514,7 +515,124 @@
       </div>
     </div>
 
+    <div id="container_Asus">
+      <div id="BigTitle_Asus">Asus</div>
+      <div id="captalog_asus">
+          <div id="filter">
+              <div class="just_space_right"><i class="fa-solid fa-filter"></i> Lọc sản phẩm</div>
+              <div style="position: absolute;right: 0px;display: flex;">
+                  <div class="just_space"><i class="fa-solid fa-down-long"></i>Giá từ cao đến thấp</div>
+                  <div class="just_space"><i class="fa-solid fa-up-long"></i>Giá từ thấp đến cao   </div>
+              </div>
+          </div>
 
+          <div id="show_item">
+                <div class="Asus_Item">
+                    <img class="item" src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Asus Vivobook Go 15 E1504FA</div>
+                    <div class="price_Product">12.590.000</div>
+                </div>
+
+                <div class="Asus_Item">
+                    <img class="item" src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Asus Vivobook Go 15 E1504FA</div>
+                    <div class="price_Product">12.590.000</div>
+                </div>
+                
+                <div class="Asus_Item">
+                    <img class="item" src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Asus Vivobook Go 15 E1504FA</div>
+                    <div class="price_Product">12.590.000</div>
+                </div>
+
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg" alt="">
+                  <div class="name_Product">Asus Vivobook Go 15 E1504FA</div>
+                  <div class="price_Product">12.590.000</div>
+                </div>
+
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg" alt="">
+                  <div class="name_Product">Asus Vivobook Go 15 E1504FA</div>
+                  <div class="price_Product">12.590.000</div>
+                </div>
+                
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/asus-vivobook-go-15-e1504fa-r5-nj776w-thumb-600x600.jpg" alt="">
+                  <div class="name_Product">Asus Vivobook Go 15 E1504FA</div>
+                  <div class="price_Product">12.590.000</div>
+                </div>
+          </div>
+
+          <div class="page-button">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>...</button>
+            <button>></button>
+          </div>
+      </div>
+    </div>
+
+    <div id="container_Dell">
+      <div id="BigTitle_Dell">Dell</div>
+      <div id="captalog_dell">
+          <div id="filter">
+              <div class="just_space_right"><i class="fa-solid fa-filter"></i> Lọc sản phẩm</div>
+              <div style="position: absolute;right: 0px;display: flex;">
+                  <div class="just_space"><i class="fa-solid fa-down-long"></i>Giá từ cao đến thấp</div>
+                  <div class="just_space"><i class="fa-solid fa-up-long"></i>Giá từ thấp đến cao   </div>
+              </div>
+          </div>
+
+          <div id="show_item">
+                <div class="Dell_Item">
+                    <img class="item" src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Dell Inspiron 14 5440</div>
+                    <div class="price_Product">23.900.000</div>
+                </div>
+
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg" alt="">
+                  <div class="name_Product">Dell Inspiron 14 5440</div>
+                  <div class="price_Product">23.900.000</div>
+                </div>
+                
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg" alt="">
+                  <div class="name_Product">Dell Inspiron 14 5440</div>
+                  <div class="price_Product">23.900.000</div>
+                </div>
+
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Dell Inspiron 14 5440</div>
+                    <div class="price_Product">23.900.000</div>
+                </div>
+
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Dell Inspiron 14 5440</div>
+                    <div class="price_Product">23.900.000</div>
+                </div>
+                
+                <div class="Asus_Item">
+                  <img class="item" src="./img/Dell/dell-inspiron-14-5440-core-7-n4i7204w1-thumb-600x600.jpg" alt="">
+                    <div class="name_Product">Dell Inspiron 14 5440</div>
+                    <div class="price_Product">23.900.000</div>
+                </div>
+          </div>
+
+          <div class="page-button">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>...</button>
+            <button>></button>
+          </div>
+      </div>
+    </div>
+   
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>
     <script src="./slideshow.js"></script>

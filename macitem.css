@@ -1,25 +1,26 @@
 #container_Mac{
     width: 80%;
     text-align: center;
-    /* display: none; */
+     display: none;
     margin: 0 auto;
     margin-top: 58px;
 }
 #BigTitle_Mac{
     font-size: xx-large;
     color: red;
-    border-top: 0.5px solid black;
+    /* border-top: 0.5px solid black; */
     width: 500px;
     text-align: center;
     margin: 0 auto;
 }
 /* #captalog_mac{
     border: 2px solid black;
-} */
+}  */
+  
 #filter{
     display: flex;
     position: relative;
-    border: 0.5px solid black;
+    /* border-bottom: 0.5px solid black; */
 }
 .just_space{
     margin-left: 30px;

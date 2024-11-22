@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #faf5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.order-summary {
+    background: #fff;
+    padding: 30px;
+    border: 2px solid #796af8;
+    box-shadow: 0 0 3px #074c77;
+    border-radius: 8px;
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 48%; 
+}
+
+.payment-container{
+    background-color: #faf5f5;
+    padding: 30px;
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 48%;
+}
+
+h3 {
+    font-size: 18px;
+    color: #074c77;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+label {
+    position: relative;
+    top: -1px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #181717;
+}
+
+input[type="text"], input[type="email"], textarea{
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+input[type="text"]:hover,input[type="email"]:hover,textarea:hover{
+    transform: scale(1.01);
+    border: 2px solid #074c77;
+    box-shadow: 0 0 3px #074c77;
+    outline: none;
+}
+
+input[type="checkbox"], input[type="radio"]{
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.order-header,.subtotal,.shipping,.total{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+hr {
+    border: 0px solid;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+#atm-options {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.submit-btn {
+    display: flex;                 
+    justify-content: center;      
+    margin-top: 20px;            
+}
+
+#submit-btn {
+    background-color: #796af8;    
+    color: white;              
+    border: none;                  
+    padding: 10px 20px;           
+    font-size: 16px;               
+    font-weight: bold;          
+    border-radius: 5px;           
+    cursor: pointer; 
+}
+
+#submit-btn:hover {
+    background-color: #796af8;   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+#submit-btn:active {
+    transform: scale(1.01);
+}
+
+
+
