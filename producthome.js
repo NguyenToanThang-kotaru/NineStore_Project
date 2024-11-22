@@ -44,24 +44,24 @@ if (!localStorage.getItem("products")) {
     const product = {
       ID: Math.round(Math.random() * 10000000000),
       Img: item.querySelector(".product-img").src,
-      Name: item.querySelector(".product-name").innerText,
-      Brand: item.querySelector(".product-brand").innerText,
-      Price: item.querySelector(".product-price").innerText,
-      Quantity: item.querySelector(".product-quantity").innerText,
+      Name: item.querySelector(".product-name").innerText.trim(),
+      Brand: item.querySelector(".product-brand").innerText.trim().trim(),
+      Price: item.querySelector(".product-price").innerText.trim(),
+      Quantity: item.querySelector(".product-quantity").innerText.trim(),
       // OriginalPrice: item.querySelector(
       //   ".product-original-price .original-price"
-      // ).innerText,
+      // ).innerText.trim(),
       Detail: {
         Img: item.querySelector(".detail-img").src,
-        CPU: item.querySelector(".CPU").innerText,
-        Screen: item.querySelector(".screen").innerText,
-        RAM: item.querySelector(".RAM").innerText,
-        ROM: item.querySelector(".ROM").innerText,
-        OS: item.querySelector(".OS").innerText,
-        Card: item.querySelector(".card").innerText,
-        Pin: item.querySelector(".pin").innerText,
-        Network: item.querySelector(".network").innerText,
-        Weight: item.querySelector(".weight").innerText,
+        CPU: item.querySelector(".CPU").innerText.trim(),
+        Screen: item.querySelector(".screen").innerText.trim(),
+        RAM: item.querySelector(".RAM").innerText.trim(),
+        ROM: item.querySelector(".ROM").innerText.trim(),
+        OS: item.querySelector(".OS").innerText.trim(),
+        Card: item.querySelector(".card").innerText.trim(),
+        Pin: item.querySelector(".pin").innerText.trim(),
+        Network: item.querySelector(".network").innerText.trim(),
+        Weight: item.querySelector(".weight").innerText.trim(),
       },
     };
     //Đẩy product vào mảng products[]
