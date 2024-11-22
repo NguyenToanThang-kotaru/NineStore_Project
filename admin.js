@@ -436,6 +436,7 @@ function editProduct(productElement) {
       const detailImg = document.getElementById(
         "form__edit-preview-detail-img"
       );
+      
 
       name.value = products[i].Name;
       brand.value = products[i].Brand;
@@ -484,6 +485,7 @@ function editProduct(productElement) {
           imgDiv.src = product.Img;
           products[i] = product;
           localStorage.setItem("products", JSON.stringify(products));
+          document.querySelector('.product__edit').style.display="none";
         });
       break;
     }
