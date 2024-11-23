@@ -123,6 +123,7 @@ formRegister.addEventListener("submit", (event) => {
       Email: email.value,
       Password: password.value,
       OrderHistory: [],
+      UserType: "customer"
     };
     userLocal.push(user);
     localStorage.setItem("users", JSON.stringify(userLocal));

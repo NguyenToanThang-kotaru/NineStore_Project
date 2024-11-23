@@ -1,6 +1,7 @@
 const adminAccount = {
   UserName: "admin",
   Password: "admin123",
+  UserType: "admin"
 };
 const loginSubmit = document.querySelector(".login-submit");
 loginSubmit.addEventListener("click", (event) => {

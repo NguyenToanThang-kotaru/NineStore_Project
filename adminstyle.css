@@ -127,7 +127,8 @@ img {
 }
 
 #product__add-box,
-#product__edit-box {
+#product__edit-box,
+#admin__add-box {
   min-width: 400px;
   width: 800px;
   overflow: auto;
@@ -166,7 +167,8 @@ table {
 }
 
 .product__btn-style,
-.order__btn-style {
+.order__btn-style,
+.admin__btn-style {
   display: flex;
   justify-content: center;
   margin: 40px;
