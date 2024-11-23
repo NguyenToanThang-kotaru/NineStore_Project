@@ -20,7 +20,7 @@
   }
   .product {
     width: 100%;
-    padding: 10px 20px;
+    padding: 20px;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: box-shadow 0.3s ease;
@@ -132,6 +132,7 @@
   /* --------- listpage ----------- */
   #all-product {
     position: relative;
+    height: 1000px;
   }
   .listPage {
     margin-top: 10px;
@@ -139,9 +140,10 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 750px;
+    top: 950px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
   }
   
   .listPage .numberlist {
@@ -253,3 +255,4 @@
     font-size: 28px;
     display: flex;
   }
+  

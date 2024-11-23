@@ -71,14 +71,23 @@ if (!localStorage.getItem("products")) {
   localStorage.setItem("products", JSON.stringify(products));
 }
 // Hiển thị sản phẩm đã lưu vào localStorage
-function displayProduct() {
-  const products = JSON.parse(localStorage.getItem("products"));
+function displayProduct(arr) {
+  //Xóa sản phẩm đang hiển thị trước đó nếu nó tồn tại
+  const productListRemove = document.querySelector(".all-product-list-remove");
+  if (productListRemove) productListRemove.remove();
+  //Chọn container và tạo thẻ product list
   const productContainer = document.querySelector("#all-product .container");
   const productList = document.createElement("div");
   productList.classList.add("all-product-list");
+  productList.classList.add("all-product-list-remove");
   productList.id = "product-list";
+  //Những sản phẩm xuất hiện bắt đầu và kết thúc ở vị trí nào trong mảng
+  const start = (thisPage - 1) * amountProduct1Page;
+  const end = thisPage * amountProduct1Page;
+
   let productListContent = "";
-  products.forEach((item) => {
+  arr.forEach((item, index) => {
+    if (index >= start && index < end) {
     productListContent += `<section class="product all-product-item">
                 <img
                   src="${item.Img}"
@@ -161,11 +170,77 @@ function displayProduct() {
                   </div>
                 </div>
               </section>`;
+    }
   });
   productList.innerHTML = productListContent;
   productContainer.append(productList);
+  createListPage(arr);
   hideOverlay();
-  addCart();
-  addCartQuantity();
+  // addCart();
+  // addCartQuantity();
 }
-displayProduct();
+
+// ----------------------- PHAN TRANG ------------------------
+// Tạo mảng chứa tất cả sản phẩm
+const productList = JSON.parse(localStorage.getItem("products")) || [];
+//Tạo mảng chứa sản phẩm từng loại
+let dellList = [];
+let asusList = [];
+let macList = [];
+productList.forEach((product) => {
+  if (product.Brand === "Dell") dellList.push(product);
+  if (product.Brand === "Asus") asusList.push(product);
+  if (product.Brand === "Mac") macList.push(product);
+});
+//Trang hiện tại là 1
+let thisPage = 1;
+//Số sản phẩm trong 1 trang là 6
+const amountProduct1Page = 6;
+function createListPage(arr) {
+  const listPage = document.querySelector(".listPage");
+  //Tạo số trang = số sảng phẩm / số sản phẩm 1 trang
+  const amountPage = Math.ceil(arr.length / amountProduct1Page);
+  let s = "";
+  for (let i = 1; i <= amountPage; i++) {
+    let type = "all";
+    if (arr === dellList) type = "dell";
+    else if (arr === asusList) type = "asus";
+    else if (arr === macList) type = "mac";
+
+    if (i === thisPage) {
+      s += `<button onclick="changePage(${i}, '${type}')" class="numberlist active">${i}</button>`;
+    } else {
+      s += `<button onclick="changePage(${i}, '${type}')" class="numberlist">${i}</button>`;
+    }
+  }
+  listPage.innerHTML = s;
+}
+
+function showDELL() {
+  thisPage = 1;
+  displayProduct(dellList);
+}
+function showASUS() {
+  thisPage = 1;
+  displayProduct(asusList);
+}
+function showMac() {
+  thisPage = 1;
+  displayProduct(macList);
+}
+
+function changePage(page, type) {
+  thisPage = page;
+  if (type === "dell") {
+    displayProduct(dellList);
+  } else if (type === "asus") {
+    displayProduct(asusList);
+  } else if (type === "mac") {
+    displayProduct(macList);
+  } else;
+  displayProduct(productList);
+}
+// ---------------------- Khi load trang --------------------
+window.onload = function () {
+  displayProduct(productList);
+};
