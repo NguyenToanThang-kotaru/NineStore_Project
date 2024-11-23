@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="Footter.css" />
     <link rel="stylesheet" href="registerNineShop.css" />
     <link rel="stylesheet" href="login.css" />
-    <link rel="stylesheet" href="macitem.css"/>
-    <link rel="stylesheet" href="producthome.css"/>
+    <link rel="stylesheet" href="macitem.css" />
+    <link rel="stylesheet" href="producthome.css" />
+    <link rel="stylesheet" href="cart.css" />
   </head>
 
   <body>
-    <div id="home-page" style="width: 100%;">
+    <div id="home-page" style="width: 100%">
       <!-- Topmenu -->
       <div id="container">
         <div id="Topmenu">
@@ -67,7 +68,11 @@
                 </li>
               </ul>
             </li>
-            <li style="padding: 0 15px" class="fa-solid fa-cart-shopping"></li>
+            <li
+              style="padding: 0 15px"
+              class="fa-solid fa-cart-shopping"
+              onclick="displayCart()"
+            ></li>
           </ul>
         </div>
       </div>
@@ -108,7 +113,7 @@
                 alt="ASUS"
               />
             </button>
-            <button class="type-button" onclick="showMac()" >
+            <button class="type-button" onclick="showMac()">
               <img src="./img/brand_icon/mac.png" class="type-item" alt="hp" />
             </button>
           </div>
@@ -1943,10 +1948,10 @@
     <!---------------------------- register ------------------------->
     <div class="register-page">
       <div class="container">
-        <div class="register-box" style="position: relative;">
-        <div class="esc-register">
-           <i class="fa-solid fa-x"></i>
-        </div>
+        <div class="register-box" style="position: relative">
+          <div class="esc-register">
+            <i class="fa-solid fa-x"></i>
+          </div>
           <h1 class="register-title">Đăng ký</h1>
           <form class="form-register">
             <div class="form-register-top">
@@ -2211,7 +2216,50 @@
         </div>
       </div>
     </div>
+    <!-- -----------------------------------Cart ----------------------------------------- -->
+    <div class="overlay cart-page" style="display: block">
+      <div class="cart-box">
+        <i class="fa-solid fa-rectangle-xmark close"></i>
+        <h2 class="cart-heading">Giỏ hàng của bạn</h2>
 
+        <table class="cart-table" id="body">
+          <thead>
+            <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  id="all"
+                  class="mom-checkbox"
+                  onclick="momCheckBox(this)"
+                />
+              </th>
+              <th style="width: 15%">Mã sản phẩm</th>
+              <th style="width: 15%">Tên Sản phẩm</th>
+              <th style="width: 10%">Hình Ảnh Sản phẩm</th>
+              <th style="width: 15%">Đơn giá</th>
+              <th style="width: 15%">Số lượng</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="products-cart"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="7">
+                Tổng tiền:
+                <span class="order-total-price">0</span>
+                <sup>₫</sup>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <button type="button" class="submit-order" onclick="buy()">Mua</button>
+        <div class="cart-empty">
+          Không có sản phẩm nào trong giỏ hàng của bạn
+        </div>
+        <!-- <button class="buy" onclick="showPaymentForm()">Show</button> -->
+      </div>
+    </div>
 
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>
@@ -2219,5 +2267,6 @@
     <script src="./register.js"></script>
     <script src="./login.js"></script>
     <script src="./producthome.js"></script>
+    <script src="./cart.js"></script>
   </body>
 </html>

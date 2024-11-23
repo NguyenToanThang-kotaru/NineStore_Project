@@ -88,7 +88,7 @@ function displayProduct(arr) {
   let productListContent = "";
   arr.forEach((item, index) => {
     if (index >= start && index < end) {
-    productListContent += `<section class="product all-product-item">
+      productListContent += `<section class="product all-product-item" id="${item.ID}">
                 <img
                   src="${item.Img}"
                   alt=""
@@ -104,7 +104,7 @@ function displayProduct(arr) {
                   >
                     <div class="note">Xem thêm thông tin</div>
                   </i>
-                  <i class="fa-solid fa-cart-shopping add-cart">
+                  <i class="fa-solid fa-cart-shopping add-cart" onclick="addToCart(this)">
                     <div class="note">Thêm vào giỏ hàng</div>
                   </i>
                 </div>

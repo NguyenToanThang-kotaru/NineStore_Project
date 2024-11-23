@@ -1,83 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment</title>
-    <link rel="stylesheet" href="payment.css">
-</head>
-<body>
+    <link rel="stylesheet" href="payment.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="payment-container">
-            <h3>THÔNG TIN THANH TOÁN</h3>
-            <form>
-                    <label for="name">Tên *</label><br>
-                    <input type="text" id="name" placeholder="Nhập tên"><br>
-                    <label for="address">Địa chỉ *</label><br>
-                    <input type="text" id="address" placeholder="Nhập địa chỉ"><br>
-                    <label for="phone">Số điện thoại *</label><br>
-                    <input type="text" id="phone" placeholder="Số điện thoại"><br>
-                    <label for="email">Địa chỉ Email *</label><br>
-                    <input type="email" id="email" placeholder="Email"><br>
-                    <input type="checkbox" id="original-address">
-                    <label for="original-address">Dùng địa chỉ đã đăng kí tài khoản</label><br>
-                    <label for="note">Ghi chú đơn hàng (tùy chọn)</label>
-                    <textarea id="note" placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay địa chỉ giao hàng chi tiết"></textarea>
-            </form>
+      <div class="payment-container">
+        <h3>THÔNG TIN THANH TOÁN</h3>
+        <form>
+          <label for="name">Tên *</label><br />
+          <input type="text" id="name" placeholder="Nhập tên" /><br />
+          <label for="address">Địa chỉ *</label><br />
+          <input type="text" id="address" placeholder="Nhập địa chỉ" /><br />
+          <label for="phone">Số điện thoại *</label><br />
+          <input type="text" id="phone" placeholder="Số điện thoại" /><br />
+          <label for="email">Địa chỉ Email *</label><br />
+          <input type="email" id="email" placeholder="Email" /><br />
+          <input type="checkbox" id="original-address" />
+          <label for="original-address">Dùng địa chỉ đã đăng kí tài khoản</label
+          ><br />
+          <label for="note">Ghi chú đơn hàng (tùy chọn)</label>
+          <textarea
+            id="note"
+            placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay địa chỉ giao hàng chi tiết"
+          ></textarea>
+        </form>
+      </div>
+
+      <div class="order-summary">
+        <h3>ĐƠN HÀNG CỦA BẠN</h3>
+        <div class="order-header">
+          <p><strong>SẢN PHẨM</strong></p>
+          <p><strong>TẠM TÍNH</strong></p>
+        </div>
+        <div id="order-items">Thông tin sản phẩm</div>
+        <hr />
+        <div class="order-total">
+          <div class="subtotal">
+            <p><strong>Tạm tính: </strong></p>
+            <p id="subtotal"><strong>0 đ</strong></p>
+          </div>
+          <div class="shipping">
+            <p>Giao hàng:</p>
+            <p id="shipping">Giao hàng miễn phí</p>
+          </div>
+          <div class="total">
+            <p><strong>Tổng: </strong></p>
+            <p id="total"><strong>0 đ</strong></p>
+          </div>
         </div>
 
-        <div class="order-summary">
-            <h3>ĐƠN HÀNG CỦA BẠN</h3>
-            <div class="order-header">
-                <p><strong>SẢN PHẨM</strong></p>
-                <p><strong>TẠM TÍNH</strong></p>
-            </div>
-            <div id="order-items">
-                Thông tin sản phẩm
-            </div>
-            <hr>
-            <div class="order-total">
-                <div class="subtotal">
-                    <p><strong>Tạm tính: </strong></p>
-                    <p id="subtotal"><strong>0 đ</strong></p>                   
-                </div>
-                <div class="shipping">
-                    <p>Giao hàng: </p>
-                    <p id="shipping">Giao hàng miễn phí</p>
-                </div>
-                <div class="total">
-                    <p><strong>Tổng: </strong></p>
-                    <p id="total"><strong>0 đ</strong></p>
-                </div>
-            </div>
-
-            <h3>Phương thức thanh toán</h3> 
-            <div>
-                <input type="radio" id="cash-on-delivery" name="payment" >
-                <label for="cash-on-delivery">Thanh toán khi nhận hàng</label>
-            </div>
-            <div>
-                <input type="radio" id="atm-payment" name="payment" >
-                <label for="atm-payment">Thanh toán bằng ATM</label>
-                <div id="atm-options">
-                    <label for="bank">Chọn ngân hàng:</label>
-                    <select id="bank">
-                        <option value="">Chọn ngân hàng</option>
-                        <option value="vietcombank">Vietcombank</option>
-                        <option value="techcombank">Techcombank</option>
-                        <option value="vpbank">VPBank</option>
-                        <option value="agribank">Agribank</option>
-                    </select>
-                    <br><br>
-                    <label for="card-number">Số thẻ:</label>
-                    <input type="text" id="card-number" placeholder="Nhập số thẻ ATM">
-                </div>
-            </div>
-            <div class="submit-btn">
-                <input type="submit" id="submit-btn" value="THANH TOÁN">
-            </div>
+        <h3>Phương thức thanh toán</h3>
+        <div>
+          <input type="radio" id="cash-on-delivery" name="payment" />
+          <label for="cash-on-delivery">Thanh toán khi nhận hàng</label>
         </div>
+        <div>
+          <input type="radio" id="atm-payment" name="payment" />
+          <label for="atm-payment">Thanh toán bằng ATM</label>
+          <div id="atm-options">
+            <label for="bank">Chọn ngân hàng:</label>
+            <select id="bank">
+              <option value="">Chọn ngân hàng</option>
+              <option value="vietcombank">Vietcombank</option>
+              <option value="techcombank">Techcombank</option>
+              <option value="vpbank">VPBank</option>
+              <option value="agribank">Agribank</option>
+            </select>
+            <br /><br />
+            <label for="card-number">Số thẻ:</label>
+            <input type="text" id="card-number" placeholder="Nhập số thẻ ATM" />
+          </div>
+        </div>
+        <div class="submit-btn">
+          <input type="submit" id="submit-btn" value="THANH TOÁN" />
+        </div>
+      </div>
     </div>
     <script src="payment.js"></script>
-</body>
+  </body>
 </html>
