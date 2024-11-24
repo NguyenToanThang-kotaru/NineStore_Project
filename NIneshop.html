@@ -34,26 +34,26 @@
             <li>
               <a href="Nineshop.html">Laptop</a>
               <ul id="menudacap">
-                <li class="asus_Product">Asus</li>
-                <li class="mac_Product3">Macbook</li>
-                <li class="dell_Product">Dell</li>
+                <li class="asus_Product"onclick="showASUS()">Asus</li>
+                <li class="mac_Product3" onclick="showMac()">Macbook</li>
+                <li class="dell_Product" onclick="showDELL()">Dell</li>
               </ul>
             </li>
-            <li class="mac_Product">MacBook</li>
+            <li class="mac_Product" onclick="showMac()">MacBook</li>
             <li>Sản phẩm cũ</li>
             <li>Đang giảm giá</li>
             <li>More</li>
           </ul>
           <ul id="rightmenu">
-            <li
-              style="padding: 0 15px"
-              class="fa-solid fa-magnifying-glass"
-            ></li>
+            <li style="padding: 0 15px">
+              <div class="fa-solid fa-magnifying-glass" id="searching">
+                <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm..." />
+              </div>
+            </li>
             <li
               style="padding: 0 15px; position: relative"
               class="fa-solid fa-user"
             >
-              <!-- <a class="fa-solid fa-user"></a> -->
               <ul id="menudacap2">
                 <li class="register-btn">
                   <a href="#">Đăng ký</a>
@@ -115,11 +115,12 @@
           <!-- Sản phẩm có sẵn để lấy thông tin (ẩn) -->
           <div id="product-list" class="all-product-list" style="display: none">
             <!-- DELL 1 -->
-            <section class="product all-product-item dell">
+            <section class="product all-product-item dell"  >
               <img
                 src="./img/Details/Dell/Laptop Dell Inspiron 14 5440 71034770/img/anh1.webp"
                 alt=""
                 class="product-img"
+                onclick="showDetail(this)"
               />
               <p class="product-name">Laptop Dell Inspiron 14 5440 71034770</p>
               <div class="product-brand" style="display: none">Dell</div>
@@ -2212,7 +2213,7 @@
       </div>
     </div>
 
-
+    <script src="./search.js"></script>
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>
     <script src="./slideshow.js"></script>
