@@ -129,7 +129,7 @@ function addToCart(cartElement) {
         <td><input type="checkbox" id="myCheckbox" class="item-checkbox" onchange="cartTotal()"></td>
         <td class="order-product-id">${productID}</td>
         <td class="order-product-name">${productName}</td>
-        <td><img width='100' src='${productImg}' alt=''></td>
+        <td><img width='100' src='${productImg}' class="order-img"></td>
         <td><span class="order-price">${productPrice}</span><sup>₫</sup></td>
         <td>
                           <div class="detail-quantity">
@@ -276,10 +276,11 @@ function submitOrder() {
   if (cartListChecked.length > 0) {
     cartListChecked.forEach((cart) => {
         product = {
-          id: cart.querySelector(".order-product-id").innerText,
-          name: cart.querySelector(".order-product-name").innerText,
-          quantity: cart.querySelector(".order-quantity").value,
-          price: cart.querySelector(".order-price").innerText,
+          ID: cart.querySelector(".order-product-id").innerText,
+          Name: cart.querySelector(".order-product-name").innerText,
+          Quantity: cart.querySelector(".order-quantity").value,
+          Price: cart.querySelector(".order-price").innerText,
+          Img: cart.querySelector(".order-img").src,
         }
         productList.push(product);
     });

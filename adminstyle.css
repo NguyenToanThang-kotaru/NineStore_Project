@@ -263,3 +263,16 @@ button:hover {
   color: #e61e1e;
   background-color: #e9e6e6;
 }
+
+
+/* --------------- Order ------------ */
+.order__detail {
+  background-color: #b6b6b6;
+  width: 100px;
+}
+.order__detail:hover {
+  background-color: #a7a7a7;
+  color: #321ee6;
+  cursor: pointer;
+
+}

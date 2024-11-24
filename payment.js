@@ -46,12 +46,12 @@ function displayPayment(productList) {
   let tbodyContent = "";
   productList.forEach((product) => {
     const priceTemp = (
-      product.quantity * product.price.replace(/\./g, "")
+      product.Quantity * product.Price.replace(/\./g, "")
     ).toLocaleString("de-DE");
     tbodyContent += `
         <tr>
-              <td class="payment-product-name">${product.name}</td>
-              <td class="payment-quantity">${product.quantity}</td>
+              <td class="payment-product-name">${product.Name}</td>
+              <td class="payment-quantity">${product.Quantity}</td>
               <td class="payment-price">
                 <span class="payment-price-value">${priceTemp}</span><sup>đ</sup>
               </td>
@@ -115,9 +115,10 @@ function displayPayment(productList) {
             ProductList: productList,
             Customer: userLogin,
             OrderDate: today,
+            TotalPrice: totalPriceCart,
             Pay: payment,
             CardNumber: atmNumber,
-            Status: "Chưa xác nhận",
+            Status: "Chưa xử lý",
           };
           orders.push(order)
           localStorage.setItem("orders", JSON.stringify(orders));

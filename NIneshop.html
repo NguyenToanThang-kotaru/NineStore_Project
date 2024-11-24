@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="producthome.css" />
     <link rel="stylesheet" href="cart.css" />
     <link rel="stylesheet" href="payment.css" />
+    <link rel="stylesheet" href="info.css" />
   </head>
 
   <body>
@@ -61,8 +62,8 @@
                   <a href="#">Đăng ký</a>
                 </li>
                 <li class="login-btn"><a href="#">Đăng nhập</a></li>
-                <li class="info-btn">
-                  <a href="#">Thông tin của bạn</a>
+                <li class="info-btn" onclick="showInfo()">
+                  <a href="#" >Thông tin của bạn</a>
                 </li>
                 <li class="logout-btn" onclick="logOut()">
                   <a href="#">Đăng xuất</a>
@@ -2388,6 +2389,66 @@
         </form>
       </div>
     </div>
+    <!---------------------------- Account Info ------------------------->
+    <div class="overlay info-account">
+      <div class="info-box">
+        <i class="fa-solid fa-rectangle-xmark close"></i>
+        <h2 class="info-heading">Thông tin của bạn</h2>
+        <table class="info-table">
+          <!-- <tr>
+        <td>Tên:</td>
+        <td>Nguyễn Văn A</td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>tinhoctap103@gmail.com</td>
+      </tr>
+      <tr>
+        <td>Số điện thoại:</td>
+        <td>0123456</td>
+      </tr> -->
+          <!-- <button class="order-history-btn">Xem lịch sử đặt hàng</button> -->
+        </table>
+      </div>
+    </div>
+    <!---------------------------- Order History ------------------------->
+    <div class="history-page overlay">
+      <div class="history-box">
+        <i class="fa-solid fa-rectangle-xmark close"></i>
+        <h2 class="history-heading">Lịch sử đặt hàng của bạn</h2>
+        <div class="history-table-list">
+          <!-- <table class="history-table">
+            <h3 class="history-order-id">Đơn hàng 1:</h3>
+            <thead>
+              <tr>
+                <th>Sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img src="./assets/imgs/dell1.jpg" class="history-order-img">
+                  <span class="history-order-name">Dell Inspiron 15 3520 i5</span>
+                </td>
+                <td><span class="history-order-price">16.000.000</span><sup>đ</sup></td>
+                <td class="history-order-quantity">1</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" class="totalPrice">Tổng cộng: <span class="total-price-value">0</span><sup>đ</sup></td>
+              </tr>
+              <tr>
+                <td colspan="3" class="history-order-status">Tình trạng: <span class="history-order-status-text">Chưa xử lý</span></td>
+              </tr>
+            </tfoot>
+          </table> -->
+        </div>
+        <div class="history-empty">Bạn chưa mua đơn hàng nào</div>
+      </div>
+    </div>
 
     <script src="./common.js"></script>
     <script src="./Block_None.js"></script>
@@ -2397,5 +2458,6 @@
     <script src="./producthome.js"></script>
     <script src="./cart.js"></script>
     <script src="./payment.js"></script>
+    <script src="./info.js"></script>
   </body>
 </html>

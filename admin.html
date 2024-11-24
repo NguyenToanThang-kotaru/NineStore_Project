@@ -398,14 +398,28 @@
                     </div>
                     <div>
                         <div id="order__list">
-                            <table>
-                                <tr>
-                                    <th class="order__width--small">Mã đơn hàng</th>
-                                    <th>SĐT</th>
-                                    <th class="order__width--small">Mã SP</th>
-                                    <th>Tình trạng đơn hàng</th>
-                                    <th>Thời gian</th>
-                                </tr>
+                            <table class="order-table">
+                                <thead>
+                                    <tr>
+                                        <th class="order__width--small">Mã đơn hàng</th>
+                                        <th>Mã khách hàng</th>
+                                        <th class="order__width--small">Giá đơn</th>
+                                        <th >Ngày đặt</th>
+                                        <th>Tình trạng</th>
+                                        <th class="order__width--small">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="order__id">Mã đơn hàng</td>
+                                        <td class="order__customer-id">Mã khách hàng</td>
+                                        <td class="order__price"><span class="order__price">12.000.0000</span
+                                            ><sup>đ</sup></td>
+                                        <td class="order__date">Ngày đặt</td>
+                                        <td class="order__status">Tình trạng</td>
+                                        <td ><button class="order__detail">Thao tác</button></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
