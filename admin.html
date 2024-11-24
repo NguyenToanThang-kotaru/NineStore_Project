@@ -4,19 +4,65 @@
 <head>
     <script src="https://kit.fontawesome.com/8ca35a85ae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./adminstyle.css" />
+    <link rel="stylesheet" href="./login.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter" />
     <title>Admin Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-    <div class="image__cannot-go-in" style="height: 100vh; width:100vw; display: flex; justify-content: center; align-items: center; background-color: #c2deef">
+    <div class="login-page">
+        <div class="container">
+          <div class="login-box">
+            <div class="esc-register">
+              <i class="fa-solid fa-x"></i>
+            </div>
+            <h1 class="login-title">Đăng nhập</h1>
+            <form class="form-login">
+              <label for="email-login" class="label-login email-label-login"
+                >Email đăng nhập:</label
+              >
+              <br />
+              <input
+                type="email"
+                id="email-login"
+                placeholder="Nhập email của bạn:"
+              /><br />
+              <label for="password-login" class="label-login password-label-login"
+                >Mật khẩu:</label
+              ><br />
+              <input
+                type="password"
+                id="password-login"
+                placeholder="Nhập mật khẩu của bạn:"
+              />
+              <br />
+              <div class="login-error">Email hoặc mật khẩu không đúng!</div>
+              <button type="submit" class="login-submit">Đăng nhập</button> <br />
+              <div class="register-inlogin">
+                <span class="donthaveaccount">Chưa có tài khoản?</span>
+                <button type="button" class="register-btn">Đăng ký</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="overlay login-success">
+          <div class="login-success-box">
+            <i class="fa-solid fa-rectangle-xmark close"></i>
+            <i class="fa-regular fa-circle-check"></i>
+            <h2 class="success-title">Đăng nhập thành công</h2>
+            <h2 class="success-btn" onclick="reloadPage()">Quay về trang chủ</h2>
+          </div>
+        </div>
+    </div>
+  
+    <div class="image__cannot-go-in" style="height: 100vh; width:100vw; display: flex; justify-content: center; align-items: center; background-color: #c2deef; display: none;">
         <img src="./img/404-status-code.png" alt="Error 404" style="overflow: hidden;  height: 100%; object-fit: contain" /></div>
     </div>
     <!-- Rest of the HTML code -->
 
     </div>
-    <div class="admin__page">
+    <div class="admin__page" style="display: none;">
         <div>
             <!-- Side menu -->
             <div class="side-menu">
@@ -49,7 +95,6 @@
                             <thead>
                                 <tr>
                                     <th class="product__size-id">Mã sản phẩm</th>
-                                    <!-- <th class="product__size-id">Mã loại</th> -->
                                     <th>Tên sản phẩm</th>
                                     <th class="product__size-id">Số lượng</th>
                                     <th style="width: 15%">Giá sản phẩm</th>
@@ -171,8 +216,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="form__submit" class="form__submit-style">
-                                    <button type="submit" class="form__submit-btn">Thêm</button>
+                                <div class="form__submit-style">
+                                    <button type="submit" class="form__submit-btn" id="form__add-submit">Thêm</button>
                                 </div>
                             </form>
                         </div>
@@ -285,15 +330,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="form__submit" class="form__submit-style">
-                                    <button type="submit" class="form__edit-submit-btn">
+                                <div class="form__submit-style">
+                                    <button type="submit" id="form__edit-submit-btn" class="form__submit-btn">
                                         Sửa
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <!-- -------------------------------- Remove ----------------------------- -->
                 </div>
                 <!------------------- Customer ----------------->
                 <div id="customer" class="customer disable">
@@ -314,37 +358,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="customer__list-body">
-                                    <!-- Customer lists will be here  -->                                        <td>KH#1</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái">Hoạt động</button></td>
-                                     </tr>
-                                     <tr id="KH#2">
-                                        <td>KH#2</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái" onclick="changeCustomerStatus('KH#1')">Hoạt động</button></td>
-                                     </tr>
-                                     <tr id="KH#3">
-                                        <td>KH#3</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái" onclick="changeCustomerStatus('KH#1')">Hoạt động</button></td>
-                                     </tr>
-                                     <tr id="KH#4">
-                                        <td>KH#4</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái" onclick="changeCustomerStatus('KH#1')">Hoạt động</button></td>
-                                     </tr> -->
+                                    <!-- Customer lists will be here  -->
                                 </tbody>
                             </table>
                         </div>            
@@ -359,33 +373,37 @@
                             <i class="fa-solid fa-xmark close"></i>
                             <form>
                                 <div class="form">
-                                    <div class="form__row">
-                                        <label for="form__admin-name">Họ tên người quản trị: </label>
-                                        <input type="text" id="form__admin-name" name="admin-name" required autofocus />
+                                    <div class="form__row-right">
+                                        <div class="form__row">
+                                            <label for="form__admin-name">Họ tên người quản trị: </label>
+                                            <input type="text" id="form__admin-name" name="admin-name" required autofocus />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-phone">Số điện thoại: </label>
+                                            <input type="text" id="form__admin-phone" name="admin-phone" required autofocus />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-email">Email: </label>
+                                            <input type="text" id="form__admin-email" name="admin-email" required />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-address">Địa chỉ: </label>
+                                            <input type="text" id="form__admin-address" name="admin-address" required />
+                                        </div>    
                                     </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-phone">Số điện thoại: </label>
-                                        <input type="text" id="form__admin-phone" name="admin-phone" required autofocus />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-email">Email: </label>
-                                        <input type="text" id="form__admin-email" name="admin-email" required />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-address">Địa chỉ: </label>
-                                        <input type="text" id="form__admin-address" name="admin-address" required />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-address">: </label>
-                                        <input type="text" id="form__admin-address" name="admin-address" required />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-address">Địa chỉ: </label>
-                                        <input type="text" id="form__admin-address" name="admin-address" required />
-                                    </div>
+                                    <div class="form__row-right">
+                                        <div class="form__row">
+                                            <label for="form__admin-username">Tên đăng nhập: </label>
+                                            <input type="text" id="form__admin-username" name="admin-username" required />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-password">Password: </label>
+                                            <input type="password" id="form__admin-password" name="admin-password" required />
+                                        </div>
+                                    </div> 
                                 </div>
-                                <div id="form__submit" class="form__submit-style">
-                                    <button type="submit" class="form__submit-btn">Thêm</button>
+                                <div class="form__submit-style">
+                                    <button type="submit" class="form__submit-btn" id="form__admin-submit">Thêm</button>
                                 </div>
                             </form>
                         </div>
