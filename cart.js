@@ -108,7 +108,9 @@ function addToCart(cartElement) {
     alert("Vui lòng đăng nhập để thêm vào giỏ hàng");
     return;
   }
-  const orders = document.querySelectorAll('.cart-table tbody .order-product-id');
+  const orders = document.querySelectorAll(
+    ".cart-table tbody .order-product-id"
+  );
   const productItem = cartElement.parentElement.parentElement;
   const productID = productItem.id;
   const productImg = productItem.querySelector(".product-img").src;
@@ -143,6 +145,7 @@ function addToCart(cartElement) {
   const cartTable = document.querySelector(".cart-table tbody");
   cartTable.append(addtr);
   checkCartEmpty();
+  displayTotalQuantityCart();
 }
 
 //Kiểm tra ở checkbox tất cả có được click hay không
@@ -174,7 +177,6 @@ function cartTotal() {
       cartListChecked.push(checkbox.parentElement.parentElement);
   });
   let totalPrice = 0;
-  let totalQuantity = 0;
   for (let i = 0; i < cartListChecked.length; i++) {
     const quantityValue = Number(
       cartListChecked[i].querySelector(".order-quantity").value
@@ -184,18 +186,14 @@ function cartTotal() {
         .querySelector(".order-price")
         .innerText.replace(/\./g, "")
     );
-    totalQuantity = totalQuantity + quantityValue;
     totalPrice = totalPrice + orderPrice * quantityValue;
   }
-  //   if (totalQuantity != 0) {
-  //     if (totalQuantity > 0)
-  //       document.querySelector(".order-quantity").value = totalQuantity;
-  //     else document.querySelector(".order-quantity").value = "";
-  //   }
+
   document.querySelector(".cart-table tfoot span").innerText =
     totalPrice.toLocaleString("de-DE");
   checkCartEmpty();
   changeQuantity();
+  displayTotalQuantityCart();
 }
 //Lắng nghe sự kiện ô số lượng thay đổi thì tính tiền lại
 function changeQuantity() {
@@ -241,4 +239,23 @@ function checkAllCheckbox() {
   });
   if (flag == 0) checkboxMom.checked = true;
   else checkboxMom.checked = false;
+}
+
+//Hiển thị số trên giỏ hàng
+function displayTotalQuantityCart() {
+  const cartList = document.querySelectorAll(".cart-box tbody tr");
+  const quantityCart = document.querySelector(".total-quantity-cart");
+  let totalQuantity = 0;
+  if (cartList.length > 0) {
+    for (var i = 0; i < cartList.length; i++) {
+      var quantityValue = Number(
+        cartList[i].querySelector(".order-quantity").value
+      );
+      totalQuantity = totalQuantity + quantityValue;
+    }
+    if (totalQuantity != 0) {
+      if (totalQuantity > 0) quantityCart.innerText = totalQuantity;
+      else quantityCart.innerText = "";
+    }
+  } else quantityCart.innerText = "";
 }
