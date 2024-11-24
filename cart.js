@@ -128,7 +128,7 @@ function addToCart(cartElement) {
       <tr>
         <td><input type="checkbox" id="myCheckbox" class="item-checkbox" onchange="cartTotal()"></td>
         <td class="order-product-id">${productID}</td>
-        <td>${productName}</td>
+        <td class="order-product-name">${productName}</td>
         <td><img width='100' src='${productImg}' alt=''></td>
         <td><span class="order-price">${productPrice}</span><sup>₫</sup></td>
         <td>
@@ -258,4 +258,34 @@ function displayTotalQuantityCart() {
       else quantityCart.innerText = "";
     }
   } else quantityCart.innerText = "";
+}
+
+// Nút mua
+function submitOrder() {
+  const checkboxes = document.querySelectorAll(".item-checkbox");
+  let cartListChecked = [];
+  checkboxes.forEach((checkbox) => {
+    //kiểm tra tất cả checkbox có được check hay khôn
+    checkAllCheckbox();
+    //Kiểm tra nếu checkbox được check thì thêm vào mảng
+    if (checkbox.checked)
+      cartListChecked.push(checkbox.parentElement.parentElement);
+  });
+  //Kiểm tra xem nếu không checkbox nào được check thì báo
+  let productList = [];
+  if (cartListChecked.length > 0) {
+    cartListChecked.forEach((cart) => {
+        product = {
+          id: cart.querySelector(".order-product-id").innerText,
+          name: cart.querySelector(".order-product-name").innerText,
+          quantity: cart.querySelector(".order-quantity").value,
+          price: cart.querySelector(".order-price").innerText,
+        }
+        productList.push(product);
+    });
+    displayPayment(productList);
+  }
+  else{
+    alert("Vui lòng chọn ít nhất một sản phẩm để mua")
+  }
 }
