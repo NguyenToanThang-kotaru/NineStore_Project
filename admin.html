@@ -171,8 +171,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="form__submit" class="form__submit-style">
-                                    <button type="submit" class="form__submit-btn">Thêm</button>
+                                <div class="form__submit-style">
+                                    <button type="submit" id="form__submit-btn">Thêm</button>
                                 </div>
                             </form>
                         </div>
@@ -270,13 +270,7 @@
                                                     accept="image/*" onchange="uploadImg(this)" />
                                                 <!-- https://stackoverflow.com/questions/4328947/limit-file-format-when-using-input-type-file -->
 
-                                                <div style="
-                              margin: 10px;
-                              display: flex;
-                              justify-content: center;
-                              align-items: center;
-                              width: 30%;
-                            ">
+                                                <div style=" margin: 10px; display: flex; justify-content: center; align-items: center; width: 30%;">
                                                     <img src="./img/no-photo-or-blank-image.jpg" alt="blank image!"
                                                         class="form__preview" id="form__edit-preview-detail-img"
                                                         style="width: 100%" />
@@ -285,8 +279,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="form__submit" class="form__submit-style">
-                                    <button type="submit" class="form__edit-submit-btn">
+                                <div class="form__submit-style">
+                                    <button type="submit" id="form__edit-submit-btn">
                                         Sửa
                                     </button>
                                 </div>
@@ -314,41 +308,12 @@
                                     </tr>
                                 </thead>
                                 <tbody id="customer__list-body">
-                                    <!-- Customer lists will be here  -->                                        <td>KH#1</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái">Hoạt động</button></td>
-                                     </tr>
-                                     <tr id="KH#2">
-                                        <td>KH#2</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái" onclick="changeCustomerStatus('KH#1')">Hoạt động</button></td>
-                                     </tr>
-                                     <tr id="KH#3">
-                                        <td>KH#3</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái" onclick="changeCustomerStatus('KH#1')">Hoạt động</button></td>
-                                     </tr>
-                                     <tr id="KH#4">
-                                        <td>KH#4</td>
-                                        <td>Nguyễn Văn A</td>
-                                        <td>0123456789</td>
-                                        <td>123 Đường ABC, Quận XYZ, TP HCM</td>
-                                        <td>nguyenvana@gmail.com</td>
-                                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái" onclick="changeCustomerStatus('KH#1')">Hoạt động</button></td>
-                                     </tr> -->
+                                    <!-- Customer lists will be here  -->
                                 </tbody>
                             </table>
                         </div>            
                     </div>
+                    <!-- ------------ Add admin ------------ -->
                     <div class="admin__btn-style">
                         <button type="button" id="product__btn-add-item" onclick="showAdminAdd()">
                             Thêm quản trị viên
@@ -359,33 +324,37 @@
                             <i class="fa-solid fa-xmark close"></i>
                             <form>
                                 <div class="form">
-                                    <div class="form__row">
-                                        <label for="form__admin-name">Họ tên người quản trị: </label>
-                                        <input type="text" id="form__admin-name" name="admin-name" required autofocus />
+                                    <div class="form__row-right">
+                                        <div class="form__row">
+                                            <label for="form__admin-name">Họ tên người quản trị: </label>
+                                            <input type="text" id="form__admin-name" name="admin-name" required autofocus />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-phone">Số điện thoại: </label>
+                                            <input type="text" id="form__admin-phone" name="admin-phone" required autofocus />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-email">Email: </label>
+                                            <input type="email" id="form__admin-email" name="admin-email" required />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-address">Địa chỉ: </label>
+                                            <input type="text" id="form__admin-address" name="admin-address" required />
+                                        </div>    
                                     </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-phone">Số điện thoại: </label>
-                                        <input type="text" id="form__admin-phone" name="admin-phone" required autofocus />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-email">Email: </label>
-                                        <input type="text" id="form__admin-email" name="admin-email" required />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-address">Địa chỉ: </label>
-                                        <input type="text" id="form__admin-address" name="admin-address" required />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-address">: </label>
-                                        <input type="text" id="form__admin-address" name="admin-address" required />
-                                    </div>
-                                    <div class="form__row">
-                                        <label for="form__admin-address">Địa chỉ: </label>
-                                        <input type="text" id="form__admin-address" name="admin-address" required />
-                                    </div>
+                                    <div class="form__row-right">
+                                        <div class="form__row">
+                                            <label for="form__admin-username">Tên đăng nhập: </label>
+                                            <input type="text" id="form__admin-username" name="admin-username" required />
+                                        </div>
+                                        <div class="form__row">
+                                            <label for="form__admin-password">Password: </label>
+                                            <input type="password" id="form__admin-password" name="admin-password" required />
+                                        </div>
+                                    </div> 
                                 </div>
-                                <div id="form__submit" class="form__submit-style">
-                                    <button type="submit" class="form__submit-btn">Thêm</button>
+                                <div class="form__submit-style">
+                                    <button type="submit" id="form__admin-submit">Thêm</button>
                                 </div>
                             </form>
                         </div>

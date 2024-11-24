@@ -71,7 +71,6 @@ a:active {
 }
 
 form {
-  /* width: 50%; */
   justify-content: flex-start;
   padding-top: 10px;
   background-color: rgb(230, 230, 223);
@@ -89,8 +88,8 @@ img {
 .form__submit-style {
   text-align: center;
 }
-.form__edit-submit-btn,
-.form__submit-btn {
+#form__edit-submit-btn,
+#form__submit-btn {
   width: 200px;
   padding: 10px 0;
   cursor: pointer;
@@ -234,6 +233,7 @@ button:hover {
 .form {
   display: flex;
 }
+
 .form__row-left {
   max-width: 400px;
   border-right: 1px solid;

@@ -61,35 +61,6 @@
         return -1;
     }
 
-    // find ID
-    function findId(id, productArray) {
-        for (let x in productArray) {
-            if (productArray[x].id == id) {
-                return Number(x);
-            }
-        }
-        return -1;
-    }
-
-    // if admin upload image & submit => show image (look this shit again)
-    // function getImageUrl(id) {
-    //   let input = document.getElementById(id);
-    //   input.addEventListener("change", function (event) {
-    //     const imagefile = event.target.files[0];
-    //     const reader = new FileReader();
-    //     reader.onload = function (e) {
-    //       input.src = e.target.result;
-    //     };
-    //     reader.readAsDataURL(imagefile);
-    //   });
-    // }
-
-    // function changePreview(inputElement) {
-    //   console.log(inputElement.parentElement)
-    //   const preview = inputElement.parentElement.querySelector('.form__preview')
-    //   preview.src = document.getElementById(this).src;
-    // }
-
     // handle image files upload from an input element
     function uploadImg(inputElement) {
         const preview = inputElement.parentElement.querySelector(".form__preview"); // references preview image
@@ -127,16 +98,66 @@
     function showAdminAdd() {
         document.querySelector(".admin__add").style.display = "block";
     }
+
+    // ------------ Add product when reload the page ------------
+    function addProducttoTable() {
+        const products = JSON.parse(localStorage.getItem("products"));
+        let productContent = "";
+        products.forEach((product) => {
+            productContent += `<tr>
+                    <td class="product__id">${product.ID}</td>
+                    <td class="product__name">${product.Name}</td>
+                    <td class="product__quantity">${product.Quantity}</td>
+                    <td class="product__price">${product.Price}</td>
+                    <td>Chi tiết</td>
+                    <td class="product__img"><img src="${product.Img}" /></td>
+                    <td>
+                        <i class="fa-regular fa-pen-to-square edit-icon" onclick="editProduct(this)"></i>
+                        <i class="fa-solid fa-trash delete-icon" onclick="deleteProduct(this)"></i>
+                    </td>
+                    </tr>`;
+        });
+        document.querySelector("#product__list-body").innerHTML = productContent;
+    }    
+
+    // add customer information if the page is reloaded
+    function addCustomertoTable() {
+        const userLocal = JSON.parse(localStorage.getItem("users")) || [];
+        let customerContent = "";
+        userLocal.forEach((user) => {
+            customerContent =
+                customerContent +
+                `<tr>
+                                <td class="customer__userID">${user.UserId}</td>
+                                <td class="customer__userName">${user.UserName}</td>
+                                <td class="customer__userPhone">${user.Phone}</td>
+                                <td class="customer__userAddress">${user.Address}</td>
+                                <td class="customer__userEmail">${user.Email}</td>
+                                <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái">Hoạt động</button></td>
+                                </tr>`;
+        });
+        document.querySelector("#customer__list-body").innerHTML = customerContent;
+    }
+
+    // check if the customer is blocked => change the button status's style
+    function checkBlock() {
+        const customerStatus = document.getElementById("customer__list-body").querySelectorAll(".customer__status");
+        customerStatus.forEach((status) => {
+            const emailLock = status.parentElement.parentElement.querySelector(
+                ".customer__userEmail"
+            ).innerText;
+            const userLock = JSON.parse(localStorage.getItem("userLock")) || [];
+            for (let i = 0; i < userLock.length; i++)
+                if (emailLock == userLock[i]) {
+                    status.innerText = "Đã khóa";
+                    status.style.backgroundColor = "red";
+                    status.style.color = "white";
+                }
+        });
+    }    
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    /* 
-        if user is admin
-            show the admin page
-        else if user is not admin
-            show image cannot go in
-    */
-
     // check if the account logged in is an admin
     const user = JSON.parse(localStorage.getItem("userLogin"));
     if (user.UserType == "admin") {
@@ -144,55 +165,27 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".admin__page").style.display = "block";
     }
     else {
-            document.querySelector(".admin__page").style.display = "none";
-            document.querySelector(".image__cannot-go-in").style.display = "block";
+        document.querySelector(".admin__page").style.display = "none";
+        document.querySelector(".image__cannot-go-in").style.display = "block";
     }
 
     hideOverlay();
+
     // side menu
     const sp = document.getElementById("side-menu__menu-sp");
     const donHang = document.getElementById("side-menu__menu-order");
     const customer = document.getElementById("side-menu__menu-customer");
     const thongke = document.getElementById("side-menu__menu-statistic");
-
-    // products
-    const addItem = document.getElementById("product__btn-add-item");
-    const editItem = document.getElementById("product__btn-edit-item");
-    const removeItem = document.getElementById("product__btn-remove-item");
-
-    const submitEditItem = document.getElementById("form__submit-edit-item");
-    const submitRemoveItem = document.getElementById("form__submit-remove-item");
-
-    // orders
-
     // customers
     const customerList = document.getElementById("customer__list-body");
 
     // statistic
 
-    // some attributes
-    const tenSP = document.getElementById("form__sp-name");
-    const soluongSP = document.getElementById("form__sp-quantity");
-    const giaSP = document.getElementById("form__sp-price");
-    const chitietSP = document.getElementById("form__sp-description");
-    const hinhSP = document.getElementById("form__sp-img");
-    let productID = 1;
-
-    const editIdSP = document.getElementById("form__edit-id");
-    const editTenSP = document.getElementById("form__edit-name");
-    const editSoluongSP = document.getElementById("form__edit-quantity");
-    const editGiaSP = document.getElementById("form__edit-price");
-    const editChitietSP = document.getElementById("form__edit-description");
-    const editHinhSP = document.getElementById("form__edit-img");
-
-    const removeIdSP = document.getElementById("form__remove-id");
-
-    // array to store products
-
     // open / close a page when the icon is clicked
     {
         // open product lists
         sp.addEventListener("click", function () {
+            addProducttoTable();
             toggleForm("product", "open");
             toggleForm("order", "close");
             toggleForm("customer", "close");
@@ -218,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // open customer
         customer.addEventListener("click", function () {
             checkBlock();
+            addCustomertoTable();
             toggleForm("customer", "open");
             toggleForm("product", "close");
             toggleForm("order", "close");
@@ -268,70 +262,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // check if the customer is blocked => change the button status's style
-    function checkBlock() {
-        const customerStatus = customerList.querySelectorAll(".customer__status");
-        customerStatus.forEach((status) => {
-            const emailLock = status.parentElement.parentElement.querySelector(
-                ".customer__userEmail"
-            ).innerText;
-            const userLock = JSON.parse(localStorage.getItem("userLock")) || [];
-            for (let i = 0; i < userLock.length; i++)
-                if (emailLock == userLock[i]) {
-                    status.innerText = "Đã khóa";
-                    status.style.backgroundColor = "red";
-                    status.style.color = "white";
-                }
-        });
-    }
     // check if the pay and the ship is checked => its background will be green
 
-    //--------------------------------- Customer -----------------------------
-    function addCustomertoTable() {
-        const userLocal = JSON.parse(localStorage.getItem("users")) || [];
-        let customerContent = "";
-        userLocal.forEach((user) => {
-            customerContent =
-                customerContent +
-                `<tr id="KH#1">
-                                            <td class="customer__userID">${user.UserId}</td>
-                                            <td class="customer__userName">${user.UserName}</td>
-                                            <td class="customer__userPhone">${user.Phone}</td>
-                                            <td class="customer__userAddress">${user.Address}</td>
-                                            <td class="customer__userEmail">${user.Email}</td>
-                                            <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái">Hoạt động</button></td>
-                                         </tr>`;
-        });
-        document.querySelector("#customer__list-body").innerHTML = customerContent;
-    }
-    addCustomertoTable();
     //--------------------------------- Product -----------------------------
-    // ------------ Add ------------
-    function addProducttoTable() {
-        const products = JSON.parse(localStorage.getItem("products"));
-        let productContent = "";
-        products.forEach((product) => {
-            productContent += `<tr>
-                    <td class="product__id">${product.ID}</td>
-                    <td class="product__name">${product.Name}</td>
-                    <td class="product__quantity">${product.Quantity}</td>
-                    <td class="product__price">${product.Price}</td>
-                    <td>Chi tiết</td>
-                    <td class="product__img"><img src="${product.Img}" /></td>
-                    <td>
-                      <i class="fa-regular fa-pen-to-square edit-icon" onclick="editProduct(this)"></i>
-                      <i class="fa-solid fa-trash delete-icon" onclick="deleteProduct(this)"></i>
-                    </td>
-                  </tr>`;
-        });
-        document.querySelector("#product__list-body").innerHTML = productContent;
-    }
-    addProducttoTable();
     //Khi ấn vào submit thì thêm vào localStorage và thêm vào bảng (trường hợp chưa load trang)
-    document
-        .querySelector(".form__submit-btn")
-        .addEventListener("click", addOneProduct);
-    function addOneProduct(event) {
+    document.querySelector("#form__submit-btn").addEventListener("click", function(event) {
         event.preventDefault();
         const name = document.getElementById("form__sp-name");
         const brand = document.getElementById("form__sp-brand");
@@ -407,125 +342,161 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("products", JSON.stringify(products));
 
             // make all the input empty
-            clearInput([
-                name,
-                brand,
-                quantity,
-                price,
-                img,
-                price,
-                cpu,
-                screen,
-                ram,
-                rom,
-                os,
-                card,
-                pin,
-                network,
-                weight,
-            ]);
-            document.querySelector("#form__preview-img").src =
-                "./img/no-photo-or-blank-image.jpg";
-            document.querySelector("#form__preview-detail-img").src =
-                "./img/no-photo-or-blank-image.jpg";
+            clearInput([name, brand, quantity, price, img, price, cpu, screen, ram, rom, os, card, pin, network, weight]);
+            document.querySelector("#form__preview-img").src = "./img/no-photo-or-blank-image.jpg";
+            document.querySelector("#form__preview-detail-img").src = "./img/no-photo-or-blank-image.jpg";
         }
-    }
-});
-// ------------ Edit ------------
-function editProduct(productElement) {
-    const products = JSON.parse(localStorage.getItem("products")) || [];
-    const divProduct = productElement.parentElement.parentElement;
-    const id = divProduct.querySelector(".product__id").innerText;
-    const nameText = divProduct.querySelector(".product__name");
-    const quantityText = divProduct.querySelector(".product__quantity");
-    const priceText = divProduct.querySelector(".product__price");
-    const imgDiv = divProduct.querySelector(".product__img");
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].ID == id) {
-            const name = document.getElementById("form__edit-name");
-            const brand = document.getElementById("form__edit-brand");
-            const quantity = document.getElementById("form__edit-quantity");
-            const price = document.getElementById("form__edit-price");
-            const img = document.getElementById("form__edit-preview-img");
-            const cpu = document.getElementById("form__edit-cpu");
-            const screen = document.getElementById("form__edit-screen");
-            const ram = document.getElementById("form__edit-ram");
-            const rom = document.getElementById("form__edit-rom");
-            const os = document.getElementById("form__edit-os");
-            const card = document.getElementById("form__edit-card");
-            const pin = document.getElementById("form__edit-pin");
-            const network = document.getElementById("form__edit-network");
-            const weight = document.getElementById("form__edit-weight");
-            const detailImg = document.getElementById(
-                "form__edit-preview-detail-img"
-            );
+    });
 
-            name.value = products[i].Name;
-            brand.value = products[i].Brand;
-            quantity.value = products[i].Quantity;
-            price.value = products[i].Price;
-            img.src = products[i].Img;
-            cpu.value = products[i].Detail.CPU;
-            screen.value = products[i].Detail.Screen;
-            ram.value = products[i].Detail.RAM;
-            rom.value = products[i].Detail.ROM;
-            os.value = products[i].Detail.OS;
-            card.value = products[i].Detail.Card;
-            pin.value = products[i].Detail.Pin;
-            network.value = products[i].Detail.Network;
-            weight.value = products[i].Detail.Weight;
-            detailImg.src = products[i].Detail.Img;
-            // ----- Submit ------
-            document
-                .querySelector(".form__edit-submit-btn")
-                .addEventListener("click", (event) => {
-                    event.preventDefault();
-                    const product = {
-                        ID: id,
-                        Img: img.src,
-                        Name: name.value,
-                        Brand: brand.value,
-                        Price: price.value,
-                        Quantity: quantity.value,
-                        OriginalPrice: "",
-                        Detail: {
-                            Img: detailImg.src,
-                            CPU: cpu.value,
-                            Screen: screen.value,
-                            RAM: ram.value,
-                            ROM: rom.value,
-                            OS: os.value,
-                            Card: card.value,
-                            Pin: pin.value,
-                            Network: network.value,
-                            Weight: weight.value,
-                        },
-                    };
-                    nameText.innerText = product.Name;
-                    quantityText.innerText = product.Quantity;
-                    priceText.innerText = product.Price;
-                    imgDiv.src = product.Img;
-                    products[i] = product;
-                    localStorage.setItem("products", JSON.stringify(products));
-                });
-            break;
-        }
-    }
-    document.querySelector(".product__edit").style.display = "block";
-}
-// ------------ Delete ------------
-function deleteProduct(productElement) {
-    if (confirm("Bạn có chắc chắn xóa sản phẩm này")) {
+    // ------------ Edit ------------
+    function editProduct(productElement) {
+        const products = JSON.parse(localStorage.getItem("products")) || [];
         const divProduct = productElement.parentElement.parentElement;
         const id = divProduct.querySelector(".product__id").innerText;
-        const products = JSON.parse(localStorage.getItem("products")) || [];
+        const nameText = divProduct.querySelector(".product__name");
+        const quantityText = divProduct.querySelector(".product__quantity");
+        const priceText = divProduct.querySelector(".product__price");
+        const imgDiv = divProduct.querySelector(".product__img");
         for (let i = 0; i < products.length; i++) {
             if (products[i].ID == id) {
-                products.splice(i, 1);
-                localStorage.setItem("products", JSON.stringify(products));
+                const name = document.getElementById("form__edit-name");
+                const brand = document.getElementById("form__edit-brand");
+                const quantity = document.getElementById("form__edit-quantity");
+                const price = document.getElementById("form__edit-price");
+                const img = document.getElementById("form__edit-preview-img");
+                const cpu = document.getElementById("form__edit-cpu");
+                const screen = document.getElementById("form__edit-screen");
+                const ram = document.getElementById("form__edit-ram");
+                const rom = document.getElementById("form__edit-rom");
+                const os = document.getElementById("form__edit-os");
+                const card = document.getElementById("form__edit-card");
+                const pin = document.getElementById("form__edit-pin");
+                const network = document.getElementById("form__edit-network");
+                const weight = document.getElementById("form__edit-weight");
+                const detailImg = document.getElementById(
+                    "form__edit-preview-detail-img"
+                );
+
+                name.value = products[i].Name;
+                brand.value = products[i].Brand;
+                quantity.value = products[i].Quantity;
+                price.value = products[i].Price;
+                img.src = products[i].Img;
+                cpu.value = products[i].Detail.CPU;
+                screen.value = products[i].Detail.Screen;
+                ram.value = products[i].Detail.RAM;
+                rom.value = products[i].Detail.ROM;
+                os.value = products[i].Detail.OS;
+                card.value = products[i].Detail.Card;
+                pin.value = products[i].Detail.Pin;
+                network.value = products[i].Detail.Network;
+                weight.value = products[i].Detail.Weight;
+                detailImg.src = products[i].Detail.Img;
+                // ----- Submit ------
+                document
+                    .querySelector("#form__edit-submit-btn")
+                    .addEventListener("click", (event) => {
+                        event.preventDefault();
+                        const product = {
+                            ID: id,
+                            Img: img.src,
+                            Name: name.value,
+                            Brand: brand.value,
+                            Price: price.value,
+                            Quantity: quantity.value,
+                            OriginalPrice: "",
+                            Detail: {
+                                Img: detailImg.src,
+                                CPU: cpu.value,
+                                Screen: screen.value,
+                                RAM: ram.value,
+                                ROM: rom.value,
+                                OS: os.value,
+                                Card: card.value,
+                                Pin: pin.value,
+                                Network: network.value,
+                                Weight: weight.value,
+                            },
+                        };
+                        nameText.innerText = product.Name;
+                        quantityText.innerText = product.Quantity;
+                        priceText.innerText = product.Price;
+                        imgDiv.src = product.Img;
+                        products[i] = product;
+                        localStorage.setItem("products", JSON.stringify(products));
+                    });
                 break;
             }
         }
-        divProduct.remove();
+        document.querySelector(".product__edit").style.display = "block";
     }
-}
+    // ------------ Delete ------------
+    function deleteProduct(productElement) {
+        if (confirm("Bạn có chắc chắn xóa sản phẩm này")) {
+            const divProduct = productElement.parentElement.parentElement;
+            const id = divProduct.querySelector(".product__id").innerText;
+            const products = JSON.parse(localStorage.getItem("products")) || [];
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].ID == id) {
+                    products.splice(i, 1);
+                    localStorage.setItem("products", JSON.stringify(products));
+                    break;
+                }
+            }
+            divProduct.remove();
+        }
+    }
+
+    // ------------ Add admin ------------
+    document.querySelector("#form__admin-submit").addEventListener("click", function(event) {
+        event.preventDefault();
+        const name = document.getElementById("form__admin-name");
+        const phone = document.getElementById("form__admin-phone");
+        const email = document.getElementById("form__admin-email");
+        const address = document.getElementById("form__admin-address");
+        const userName = document.getElementById("form__admin-username");
+        const password = document.getElementById("form__admin-password");
+
+        if (!inputFilled([name, phone, email, address, userName, password])) {
+            return false;
+        } else if (isNaN(phone.value)) {
+            alert("Vui lòng nhập số.");
+            phone.focus();
+            return false;
+        }
+
+        // bring values into table
+        else {
+            // do the thing
+            const user = {
+                UserId: Math.ceil(Math.random() * 10000000000),
+                FullName: name.value,
+                Phone: phone.value,
+                Address: address.value,
+                UserName: userName.value,
+                Email: email.value,
+                Password: password.value,
+                OrderHistory: [],
+                UserType: "admin"
+            };
+                // Thêm vào bảng khi không load trang
+            const userInfo = `
+                    <tr>
+                        <td class="customer__userID">${user.UserId}</td>
+                        <td class="customer__userName">${user.FullName} (Admin)</td>
+                        <td class="customer__userPhone">${user.Phone}</td>
+                        <td class="customer__userAddress">${user.Address}</td>
+                        <td class="customer__userEmail">${user.Email}</td>
+                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái">Hoạt động</button></td>
+                    </tr>`;
+                    customerList.innerHTML += userInfo;
+            // store data into localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            users.push(user);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            // make all the input empty
+            clearInput([name, phone, email, address, userName, password]);
+        }
+    });
+});
