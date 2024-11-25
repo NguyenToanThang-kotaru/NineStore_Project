@@ -636,3 +636,245 @@ function showOrderDetail(orderElement) {
   console.log(orderElement.parentElement);
   orderElement.parentElement.querySelector(".overlay").style.display = "block";
 }
+
+// open / close a page when the icon is clicked
+{
+  // open product lists
+  sp.addEventListener("click", function () {
+    addProducttoTable();
+    toggleForm("product", "open");
+    toggleForm("order", "close");
+    toggleForm("customer", "close");
+    toggleForm("statistic", "close");
+  });
+
+  // open orders
+  donHang.addEventListener("click", function () {
+    toggleForm("order", "open");
+    toggleForm("product", "close");
+    toggleForm("customer", "close");
+    toggleForm("statistic", "close");
+  });
+
+  // open statistic
+  thongke.addEventListener("click", function () {
+    toggleForm("statistic", "open");
+    toggleForm("product", "close");
+    toggleForm("order", "close");
+    toggleForm("customer", "close");
+  });
+
+  // open customer
+  customer.addEventListener("click", function () {
+    addCustomertoTable();
+    checkBlock();
+    toggleForm("customer", "open");
+    toggleForm("product", "close");
+    toggleForm("order", "close");
+    toggleForm("statistic", "close");
+  });
+
+  // open form to add products
+
+  // open form to edit products
+  // open form to add orders
+}
+
+// Function to block customers
+customerList.addEventListener("click", function (event) {
+  if (event.target.closest(".customer__status")) {
+    // if the button clicked has the class "customer__status"
+    const customerStatus = event.target.closest(".customer__status");
+    if (customerStatus.innerText == "Hoạt động") {
+      if (confirm("Bạn có chắc chắn muốn khóa tài khoản này không?")) {
+        customerStatus.innerText = "Đã khóa";
+        customerStatus.style.backgroundColor = "red";
+        customerStatus.style.color = "white";
+        // take the customer's email, add it in the userLock array, then update the local storage
+        const emailLock =
+          customerStatus.parentElement.parentElement.querySelector(
+            ".customer__userEmail"
+          ).innerText;
+        const userLock = JSON.parse(localStorage.getItem("userLock")) || [];
+        userLock.push(emailLock);
+        localStorage.setItem("userLock", JSON.stringify(userLock));
+      }
+    } else if (customerStatus.innerText == "Đã khóa") {
+      if (confirm("Bạn có chắc chắn muốn mở khóa tài khoản này không?")) {
+        customerStatus.innerText = "Hoạt động";
+        customerStatus.style.backgroundColor = "green";
+        customerStatus.style.color = "black";
+        // take the customer's email, remove it out the userLock array, then update the local storage
+        const emailLock =
+          customerStatus.parentElement.parentElement.querySelector(
+            ".customer__userEmail"
+          ).innerText;
+        const userLock = JSON.parse(localStorage.getItem("userLock")) || [];
+        for (let i = 0; i < userLock.length; i++)
+          if (emailLock == userLock[i]) userLock.splice(i, 1);
+        localStorage.setItem("userLock", JSON.stringify(userLock));
+      }
+    }
+  }
+});
+
+// check if the pay and the ship is checked => its background will be green
+
+//--------------------------------- Product -----------------------------
+//Khi ấn vào submit thì thêm vào localStorage và thêm vào bảng (trường hợp chưa load trang)
+document
+  .querySelector("#form__add-submit")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const name = document.getElementById("form__sp-name");
+    const brand = document.getElementById("form__sp-brand");
+    const quantity = document.getElementById("form__sp-quantity");
+    const price = document.getElementById("form__sp-price");
+    const img = document.getElementById("form__preview-img");
+    const cpu = document.getElementById("form__sp-cpu");
+    const screen = document.getElementById("form__sp-screen");
+    const ram = document.getElementById("form__sp-ram");
+    const rom = document.getElementById("form__sp-rom");
+    const os = document.getElementById("form__sp-os");
+    const card = document.getElementById("form__sp-card");
+    const pin = document.getElementById("form__sp-pin");
+    const network = document.getElementById("form__sp-network");
+    const weight = document.getElementById("form__sp-weight");
+    const detailImg = document.getElementById("form__preview-detail-img");
+    if (!inputFilled([name, quantity, price, img])) {
+      return false;
+    } else if (isNaN(quantity.value)) {
+      alert("Vui lòng nhập số.");
+      quantity.focus();
+      return false;
+    } else if (isNaN(price.value)) {
+      alert("Vui lòng nhập số.");
+      price.focus();
+      return false;
+    }
+    // bring values into table
+    else {
+      // do the thing
+      const product = {
+        ID: Math.round(Math.random() * 10000000000),
+        Img: img.src,
+        Name: name.value,
+        Brand: brand.value,
+        Price: price.value,
+        Quantity: quantity.value,
+        Detail: {
+          Img: detailImg.src,
+          CPU: cpu.value,
+          Screen: screen.value,
+          RAM: ram.value,
+          ROM: rom.value,
+          OS: os.value,
+          Card: card.value,
+          Pin: pin.value,
+          Network: network.value,
+          Weight: weight.value,
+        },
+      };
+      // Thêm vào bảng khi không load trang
+      const productContent = `
+                            <tr>
+                                <td class="product__id">${product.ID}</td>
+                                <td class="product__name">${product.Name}</td>
+                                <td class="product__quantity">${product.Quantity}</td>
+                                <td class="product__price">${product.Price}</td>
+                                <td>Chi tiết</td>
+                                <td class="product__img"><img src="${product.Img}"/></td>
+                                <td>
+                                  <i class="fa-regular fa-pen-to-square edit-icon" onclick="editProduct(this)"></i>
+                                  <i class="fa-solid fa-trash delete-icon" onclick="deleteProduct(this)"></i>
+                                </td>
+                            </tr>
+                        `;
+      const addtr = document.createElement("tr");
+      addtr.innerHTML = productContent;
+      console.log(addtr);
+      document.getElementById("product__list-body").appendChild(addtr);
+      // store data into localStorage
+      const products = JSON.parse(localStorage.getItem("products")) || [];
+      products.push(product);
+      localStorage.setItem("products", JSON.stringify(products));
+
+      // make all the input empty
+      clearInput([
+        name,
+        brand,
+        quantity,
+        price,
+        img,
+        price,
+        cpu,
+        screen,
+        ram,
+        rom,
+        os,
+        card,
+        pin,
+        network,
+        weight,
+      ]);
+      document.querySelector("#form__preview-img").src =
+        "./img/no-photo-or-blank-image.jpg";
+      document.querySelector("#form__preview-detail-img").src =
+        "./img/no-photo-or-blank-image.jpg";
+    }
+  });
+// edit and remove product: at the function section
+// ------------ Add admin ------------
+document
+  .querySelector("#form__admin-submit")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const name = document.getElementById("form__admin-name");
+    const phone = document.getElementById("form__admin-phone");
+    const email = document.getElementById("form__admin-email");
+    const address = document.getElementById("form__admin-address");
+    const userName = document.getElementById("form__admin-username");
+    const password = document.getElementById("form__admin-password");
+
+    if (!inputFilled([name, phone, email, address, userName, password])) {
+      return false;
+    } else if (isNaN(phone.value)) {
+      alert("Vui lòng nhập số.");
+      phone.focus();
+      return false;
+    }
+
+    // bring values into table
+    else {
+      // do the thing
+      const user = {
+        UserId: Math.ceil(Math.random() * 10000000000),
+        FullName: name.value,
+        Phone: phone.value,
+        Address: address.value,
+        UserName: userName.value,
+        Email: email.value,
+        Password: password.value,
+        OrderHistory: [],
+        UserType: "admin",
+      };
+      // Thêm vào bảng khi không load trang
+      const userInfo = `
+                    <tr>
+                        <td class="customer__userID">${user.UserId}</td>
+                        <td class="customer__userName">${user.FullName} (Admin)</td>
+                        <td class="customer__userPhone">${user.Phone}</td>
+                        <td class="customer__userAddress">${user.Address}</td>
+                        <td class="customer__userEmail">${user.Email}</td>
+                        <td><button type="button" class="customer__status" title="Nhấp chuột để thay đổi trạng thái">Hoạt động</button></td>
+                    </tr>`;
+      customerList.innerHTML += userInfo;
+      // store data into localStorage
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // make all the input empty
+      clearInput([name, phone, email, address, userName, password]);
+    }
+  });
