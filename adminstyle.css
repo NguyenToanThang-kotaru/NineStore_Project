@@ -264,7 +264,6 @@ button:hover {
   background-color: #e9e6e6;
 }
 
-
 /* --------------- Order ------------ */
 .order__detail {
   background-color: #b6b6b6;
@@ -274,5 +273,73 @@ button:hover {
   background-color: #a7a7a7;
   color: #321ee6;
   cursor: pointer;
+}
 
+.order__detail-box {
+  background-color: #fff;
+  padding: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  max-height: 80%;
+  overflow-y: auto;
+  cursor: default;
+  z-index: 11;
+  text-align: center;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.order-detail-heading {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+}
+.order-detail-table {
+  margin: 50px auto;
+  border: 1px solid;
+}
+.order-detail-table th,
+.order-detail-table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid;
+}
+.order-detail-table td:first-child {
+  width: 500px;
+}
+.order-detail-table td:nth-child(2) {
+  width: 200px;
+}
+.order-detail-table th {
+  font-weight: 700;
+}
+.order-detail-id {
+  width: fit-content;
+}
+.order-detail-product {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.order-detail-img {
+  width: 50%;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+.order-detail-name {
+  width: 50%;
+}
+.order-detail-quantity {
+  width: 50px;
+}
+.totalPrice {
+  font-weight: 700;
+}
+.order-detail-status {
+  font-weight: 700;
+  text-align: left;
 }

@@ -534,6 +534,33 @@ function addOrdertoTable() {
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
   let orderContent = "";
   orders.forEach((order) => {
+    //detail
+    let productContent = "";
+    order.ProductList.forEach((product) => {
+      productContent += `
+      <tr>
+                                                      <td class="order-detail-id">${product.ID}</td>
+                                                      <td>
+                                                        <div class="order-detail-product">
+                                                          <img
+                                                            src="${product.Img}"
+                                                            class="order-detail-img"
+                                                          />
+                                                          <div class="order-detail-name"
+                                                            >${product.Name}</
+                                                          >
+                                                        </div>
+                                                      </td>
+                                                      <td>
+                                                        <span class="order-detail-price"
+                                                          >${product.Price}</span
+                                                        ><sup>đ</sup>
+                                                      </td>
+                                                      <td class="order-detail-quantity">${product.Quantity}</td>
+      </tr>
+      `;
+    });
+    //order
     const orderDate = new Date(order.OrderDate);
     const formattedDate = new Intl.DateTimeFormat("vi-VN").format(orderDate);
     orderContent =
@@ -545,9 +572,67 @@ function addOrdertoTable() {
                                             ><sup>đ</sup></td>
                                         <td class="order__date">${formattedDate}</td>
                                         <td class="order__status">${order.Status}</td>
-                                        <td ><button class="order__detail">Xem chi tiết</button></td>
+                                        <td>
+                                          <button class="order__detail" onclick="showOrderDetail(this)">Xem chi tiết</button>
+                                          <div class="overlay">
+                                            <div class="order__detail-box">
+                                              <i class="fa-solid fa-rectangle-xmark close"></i>
+                                              <h2 class="order-detail-heading">
+                                                Các sản phẩm trong đơn
+                                              </h2>
+                                              <div class="order-detail-table-list">
+                                                <table class="order-detail-table">
+                                                  <thead>
+                                                    <tr>
+                                                      <th style="width: 20%">Mã sản phẩm</th>
+                                                      <th style="width: 50%">Sản phẩm</th>
+                                                      <th style="width: 20%">Đơn giá</th>
+                                                      <th style="width: 10%">Số lượng</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>` +
+      productContent +
+      `</tbody>
+                                                  <tfoot>
+                                                    <tr>
+                                                      <td colspan="4" class="totalPrice">
+                                                        Tổng cộng:
+                                                        <span class="total-price-value">${order.TotalPrice}</span
+                                                        ><sup>đ</sup>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td colspan="4" class="order-detail-status">
+                                                        <label for="option-status"
+                                                          >Tình trạng</label
+                                                        >
+                                                        <select
+                                                          id="option-status"
+                                                          name="option-status"
+                                                        >
+                                                          <option value="Chưa xử lý">Chưa xử lý</option>
+                                                          <option value="Đã xử lý">Đã xử lý</option>
+                                                          <option value="Đang giao">
+                                                            Đang giao
+                                                          </option>
+                                                          <option value="Đã giao">Đã giao</option>
+                                                          <option value="Đã hủy">Đã hủy</option>
+                                                        </select>
+                                                      </td>
+                                                    </tr>
+                                                  </tfoot>
+                                                </table>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </td>
                                     </tr>`;
   });
   document.querySelector(".order-table tbody").innerHTML = orderContent;
 }
 addOrdertoTable();
+
+function showOrderDetail(orderElement) {
+  console.log(orderElement.parentElement);
+  orderElement.parentElement.querySelector(".overlay").style.display = "block";
+}

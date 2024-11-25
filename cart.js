@@ -275,18 +275,17 @@ function submitOrder() {
   let productList = [];
   if (cartListChecked.length > 0) {
     cartListChecked.forEach((cart) => {
-        product = {
-          ID: cart.querySelector(".order-product-id").innerText,
-          Name: cart.querySelector(".order-product-name").innerText,
-          Quantity: cart.querySelector(".order-quantity").value,
-          Price: cart.querySelector(".order-price").innerText,
-          Img: cart.querySelector(".order-img").src,
-        }
-        productList.push(product);
+      product = {
+        ID: cart.querySelector(".order-product-id").innerText,
+        Name: cart.querySelector(".order-product-name").innerText,
+        Quantity: cart.querySelector(".order-quantity").value,
+        Price: cart.querySelector(".order-price").innerText,
+        Img: cart.querySelector(".order-img").src,
+      };
+      productList.push(product);
     });
-    displayPayment(productList);
-  }
-  else{
-    alert("Vui lòng chọn ít nhất một sản phẩm để mua")
+    displayPayment(productList, cartListChecked);
+  } else {
+    alert("Vui lòng chọn ít nhất một sản phẩm để mua");
   }
 }

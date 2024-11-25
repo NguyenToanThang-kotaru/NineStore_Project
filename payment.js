@@ -25,8 +25,9 @@ function toggleCOD() {
   atmOptions.style.display = "none";
 }
 
-function displayPayment(productList) {
+function displayPayment(productList, cartListChecked) {
   //---Nhập thông tin vào payment--
+  console.log(cartListChecked);
   //Thông tin cá nhân
   const userLogin = JSON.parse(localStorage.getItem("userLogin"));
   const name = document.querySelector(".payment-customer-name");
@@ -85,7 +86,7 @@ function displayPayment(productList) {
         });
         const cardNumber = document.querySelector("#card-number");
         let atmNumber = "";
-        
+
         if (payment == "atm") {
           if (inputFilled([cardNumber]) == false) {
             alert("Vui lòng nhập số thẻ");
@@ -106,7 +107,6 @@ function displayPayment(productList) {
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("userLogin", JSON.stringify(userLogin));
 
-
         //Lưu các thông tin vào localStorage
         if (isCheck == true) {
           const orders = JSON.parse(localStorage.getItem("orders")) || [];
@@ -120,8 +120,13 @@ function displayPayment(productList) {
             CardNumber: atmNumber,
             Status: "Chưa xử lý",
           };
-          orders.push(order)
+          orders.push(order);
           localStorage.setItem("orders", JSON.stringify(orders));
+          //Xóa các sản phẩm đã thanh toán trong giỏ hàng
+          for (let i = 0; i < cartListChecked.length; i++)
+            cartListChecked[i].remove();
+          cartTotal();
+          alert("Đã thanh toán thành công.");
         } else {
           alert("Vui lòng chọn một phương thức thanh toán");
         }

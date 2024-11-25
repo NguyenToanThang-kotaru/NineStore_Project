@@ -4,6 +4,7 @@
   left: 0;
   background-color: #faf5f5;
   z-index: 100000;
+  overflow: auto;
   display: none;
 }
 .payment-box {
