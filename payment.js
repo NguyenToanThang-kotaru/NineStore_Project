@@ -119,6 +119,7 @@ function displayPayment(productList, cartListChecked) {
             Pay: payment,
             CardNumber: atmNumber,
             Status: "Chưa xử lý",
+            Display: true
           };
           orders.push(order);
           localStorage.setItem("orders", JSON.stringify(orders));
