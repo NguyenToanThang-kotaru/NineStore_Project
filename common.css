@@ -164,6 +164,7 @@ sup {
   height: 100%;
   background: rgba(0, 0, 0, 0.5); /* Nền mờ màu đen */
   z-index: 10;
+  cursor: pointer;
   display: none;
 }
 .close {

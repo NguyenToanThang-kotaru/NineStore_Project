@@ -9,7 +9,6 @@ const closeRegis = document.querySelectorAll(".esc-register");
 registerbtn.forEach((register) => {
   register.addEventListener("click", (e) => {
     e.preventDefault();
-    homePage.style.display = "none";
     registerPage.style.display = "block";
     loginPage.style.display = "none";
     document.getElementById("name-register").focus();
@@ -20,20 +19,15 @@ const loginbtn = document.querySelectorAll(".login-btn");
 loginbtn.forEach((login) => {
   login.addEventListener("click", (e) => {
     e.preventDefault();
-    homePage.style.display = "none";
     registerPage.style.display = "none";
     loginPage.style.display = "block";
     document.getElementById("email-login").focus();
   });
 });
 
-closeRegis.forEach((close) => {
-  close.addEventListener("click", register_close);
-  function register_close() {
-    homePage.style.display = "block";
-    registerPage.style.display = "none";
-  }
-});
+function closeRL(closeElement) {
+  closeElement.parentElement.parentElement.style.display = "none";
+}
 
 function scrollHead() {
   // Quay ve dau trang
@@ -59,6 +53,6 @@ function Macproduct_open() {
   scrollHead();
 }
 // --------------------------- showCartBox ----------
-function displayCart(){
-  document.querySelector(".cart-page").style.display = 'block'
+function displayCart() {
+  document.querySelector(".cart-page").style.display = "block";
 }

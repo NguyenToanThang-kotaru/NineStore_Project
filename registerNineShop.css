@@ -1,46 +1,39 @@
 /* ------------------------------------- Register Page ------------------------------------ */
 .register-page {
-  display: none;
+  z-index: 1000;
   height: 100vh;
 }
-/* .register-page .container {
-  padding: 50px 0;
-  border-radius: 24px;
-  background-color: #c4c4c4;
-  box-shadow: 555px 868px 288px 0px rgba(0, 0, 0, 0),
-    355px 556px 264px 0px rgba(0, 0, 0, 0.01),
-    200px 312px 223px 0px rgba(0, 0, 0, 0.05),
-    89px 139px 165px 0px rgba(0, 0, 0, 0.09),
-    22px 35px 91px 0px rgba(0, 0, 0, 0.1);
-} */
- .register-title {
+.register-title {
   font-size: 30px;
   text-align: center;
   font-weight: 700;
- }
+}
 .register-box {
   width: 1000px;
-  margin: 0 auto;
-  padding: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
   border-radius: 28.458px;
   border: 2.134px solid rgba(168, 171, 175, 0.49);
   background: rgba(56, 56, 56, 0.28);
   backdrop-filter: blur(8.893229484558105px);
 }
 
-.esc-register{
+.esc-register {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
 }
 
-.esc-register :hover{
+.esc-register :hover {
   transform: scale(1.2);
   color: #fff;
 }
 
-.esc-register:active{
+.esc-register:active {
   transform: scale(1.1);
 }
 

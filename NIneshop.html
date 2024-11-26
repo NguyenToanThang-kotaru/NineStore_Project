@@ -1950,132 +1950,127 @@
       </div>
     </div>
     <!---------------------------- register ------------------------->
-    <div class="register-page">
-      <div class="container">
-        <div class="register-box" style="position: relative">
-          <div class="esc-register">
-            <i class="fa-solid fa-x"></i>
-          </div>
-          <h1 class="register-title">Đăng ký</h1>
-          <form class="form-register">
-            <div class="form-register-top">
-              <div class="form-register-left">
-                <div class="form-control">
-                  <label
-                    for="fullname"
-                    class="label-register full-name-label-register"
-                  >
-                    Họ và tên:
-                  </label>
-                  <br />
-                  <input
-                    type="text"
-                    id="fullname"
-                    placeholder="Nhập họ và tên: "
-                  />
-                  <p class="register-error"></p>
-                </div>
-                <div class="form-control">
-                  <label
-                    for="phone"
-                    class="label-register password-label-register"
-                  >
-                    Số điện thoại:
-                  </label>
-                  <br />
-                  <input
-                    type="number"
-                    id="phone"
-                    placeholder="Nhập số điện thoại:"
-                  />
-                  <p class="register-error"></p>
-                </div>
-                <div class="form-control">
-                  <label
-                    for="address"
-                    class="label-register password-label-register"
-                  >
-                    Địa chỉ:
-                  </label>
-                  <br />
-                  <input
-                    type="text"
-                    id="address"
-                    placeholder="Nhập địa chỉ của bạn:"
-                  />
-                  <p class="register-error"></p>
-                </div>
-              </div>
-              <div class="form-register-right">
-                <div class="form-control">
-                  <label
-                    for="username"
-                    class="label-register name-label-register"
-                  >
-                    Tên đăng nhập:
-                  </label>
-                  <br />
-                  <input
-                    type="text"
-                    id="username"
-                    placeholder="Nhập tên đăng nhập: "
-                  />
-                  <p class="register-error"></p>
-                </div>
-                <div class="form-control">
-                  <label
-                    for="email"
-                    class="label-register email-label-register"
-                  >
-                    Email đăng ký:
-                  </label>
-                  <br />
-                  <input type="email" id="email" placeholder="Nhập email:" />
-                  <p class="register-error"></p>
-                </div>
-                <div class="form-control">
-                  <label
-                    for="password"
-                    class="label-register password-label-register"
-                  >
-                    Mật khẩu:
-                  </label>
-                  <br />
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Nhập mật khẩu:"
-                  />
-                  <p class="register-error"></p>
-                </div>
-                <div class="form-control">
-                  <label
-                    for="re-password"
-                    class="label-register password-label-register"
-                  >
-                    Nhập lại mật khẩu:
-                  </label>
-                  <br />
-                  <input
-                    type="password"
-                    id="re-password"
-                    placeholder="Nhập lại mật khẩu:"
-                  />
-                  <p class="register-error"></p>
-                </div>
-              </div>
-            </div>
-            <div class="form-register-foot">
-              <div class="register-submit-background">
-                <button type="submit" class="register-submit">Đăng ký</button>
-              </div>
-              <div class="login-inregister">
-                <span class="haveaccount">Đã có tài khoản?</span>
-                <button type="button" class="login-btn">Đăng nhập</button>
-              </div>
-            </div>
-          </form>
+    <div class="register-page overlay">
+      <div class="register-box" style="position: relative">
+        <div class="esc-register">
+          <i class="fa-solid fa-x"></i>
         </div>
+        <h1 class="register-title">Đăng ký</h1>
+        <form class="form-register">
+          <div class="form-register-top">
+            <div class="form-register-left">
+              <div class="form-control">
+                <label
+                  for="fullname"
+                  class="label-register full-name-label-register"
+                >
+                  Họ và tên:
+                </label>
+                <br />
+                <input
+                  type="text"
+                  id="fullname"
+                  placeholder="Nhập họ và tên: "
+                />
+                <p class="register-error"></p>
+              </div>
+              <div class="form-control">
+                <label
+                  for="phone"
+                  class="label-register password-label-register"
+                >
+                  Số điện thoại:
+                </label>
+                <br />
+                <input
+                  type="number"
+                  id="phone"
+                  placeholder="Nhập số điện thoại:"
+                />
+                <p class="register-error"></p>
+              </div>
+              <div class="form-control">
+                <label
+                  for="address"
+                  class="label-register password-label-register"
+                >
+                  Địa chỉ:
+                </label>
+                <br />
+                <input
+                  type="text"
+                  id="address"
+                  placeholder="Nhập địa chỉ của bạn:"
+                />
+                <p class="register-error"></p>
+              </div>
+            </div>
+            <div class="form-register-right">
+              <div class="form-control">
+                <label
+                  for="username"
+                  class="label-register name-label-register"
+                >
+                  Tên đăng nhập:
+                </label>
+                <br />
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Nhập tên đăng nhập: "
+                />
+                <p class="register-error"></p>
+              </div>
+              <div class="form-control">
+                <label for="email" class="label-register email-label-register">
+                  Email đăng ký:
+                </label>
+                <br />
+                <input type="email" id="email" placeholder="Nhập email:" />
+                <p class="register-error"></p>
+              </div>
+              <div class="form-control">
+                <label
+                  for="password"
+                  class="label-register password-label-register"
+                >
+                  Mật khẩu:
+                </label>
+                <br />
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Nhập mật khẩu:"
+                />
+                <p class="register-error"></p>
+              </div>
+              <div class="form-control">
+                <label
+                  for="re-password"
+                  class="label-register password-label-register"
+                >
+                  Nhập lại mật khẩu:
+                </label>
+                <br />
+                <input
+                  type="password"
+                  id="re-password"
+                  placeholder="Nhập lại mật khẩu:"
+                />
+                <p class="register-error"></p>
+              </div>
+            </div>
+          </div>
+          <div class="form-register-foot">
+            <div class="register-submit-background">
+              <button type="submit" class="register-submit">Đăng ký</button>
+            </div>
+            <div class="login-inregister">
+              <span class="haveaccount">Đã có tài khoản?</span>
+              <button type="button" class="login-btn">Đăng nhập</button>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="overlay register-success">
         <div class="register-success-box">
@@ -2087,40 +2082,38 @@
       </div>
     </div>
     <!---------------------------- login ------------------------->
-    <div class="login-page">
-      <div class="container">
-        <div class="login-box">
-          <div class="esc-register">
-            <i class="fa-solid fa-x"></i>
-          </div>
-          <h1 class="login-title">Đăng nhập</h1>
-          <form class="form-login">
-            <label for="email-login" class="label-login email-label-login"
-              >Email đăng nhập:</label
-            >
-            <br />
-            <input
-              type="email"
-              id="email-login"
-              placeholder="Nhập email của bạn:"
-            /><br />
-            <label for="password-login" class="label-login password-label-login"
-              >Mật khẩu:</label
-            ><br />
-            <input
-              type="password"
-              id="password-login"
-              placeholder="Nhập mật khẩu của bạn:"
-            />
-            <br />
-            <div class="login-error">Email hoặc mật khẩu không đúng!</div>
-            <button type="submit" class="login-submit">Đăng nhập</button> <br />
-            <div class="register-inlogin">
-              <span class="donthaveaccount">Chưa có tài khoản?</span>
-              <button type="button" class="register-btn">Đăng ký</button>
-            </div>
-          </form>
+    <div class="login-page overlay">
+      <div class="login-box">
+        <div class="esc-register" onclick="closeRL(this)">
+          <i class="fa-solid fa-x"></i>
         </div>
+        <h1 class="login-title">Đăng nhập</h1>
+        <form class="form-login">
+          <label for="email-login" class="label-login email-label-login"
+            >Email đăng nhập:</label
+          >
+          <br />
+          <input
+            type="email"
+            id="email-login"
+            placeholder="Nhập email của bạn:"
+          /><br />
+          <label for="password-login" class="label-login password-label-login"
+            >Mật khẩu:</label
+          ><br />
+          <input
+            type="password"
+            id="password-login"
+            placeholder="Nhập mật khẩu của bạn:"
+          />
+          <br />
+          <div class="login-error">Email hoặc mật khẩu không đúng!</div>
+          <button type="submit" class="login-submit">Đăng nhập</button> <br />
+          <div class="register-inlogin">
+            <span class="donthaveaccount">Chưa có tài khoản?</span>
+            <button type="button" class="register-btn">Đăng ký</button>
+          </div>
+        </form>
       </div>
       <div class="overlay login-success">
         <div class="login-success-box">
