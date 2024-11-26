@@ -111,24 +111,28 @@
 
     function checkOrderCompletion() {
         console.log("checkOrderCompletion is running");
-        const orders = JSON.parse(localStorage.getItem("orders"));
-        const now = new Date();
-        orders.forEach((order) => {
-            if (order.Status == "Đã giao") {
-                const timeDiff = (now - new Date(order.OrderDate)) / 1000 / 60;
-                if (timeDiff > 5) {
-                    const orderList = document.querySelector(".order-table tbody").querySelectorAll("tr");
-                    for (let list of orderList) {
-                        if (list.querySelector(".order__id").innerText == order.ID) {
-                            // remove that row
-                            list.remove();
-                            break;
+        if (localStorage.getItem("orders") != null) {
+            const orders = JSON.parse(localStorage.getItem("orders"));
+            const now = new Date();
+            orders.forEach((order) => {
+                if (order.Status == "Đã giao") {
+                    const timeDiff = (now - new Date(order.OrderDate)) / 1000 / 60;
+                    if (timeDiff > 5) {
+                        const orderList = document.querySelector(".order-table tbody").querySelectorAll("tr");
+                        for (let list of orderList) {
+                            if (list.querySelector(".order__id").innerText == order.ID) {
+                                // remove that row
+                                list.remove();
+                                break;
+                            }
                         }
                     }
+                    return;
                 }
-                return;
-            }
-        });
+            });    
+        }
+        else {
+        }
     }
     
 }

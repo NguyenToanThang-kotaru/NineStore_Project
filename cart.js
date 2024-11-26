@@ -104,10 +104,6 @@ function renderProducts() {
 }
 // Thêm vào giỏ hàng
 function addToCart(cartElement) {
-  if (!localStorage.getItem("userLogin")) {
-    alert("Vui lòng đăng nhập để thêm vào giỏ hàng");
-    return;
-  }
   const orders = document.querySelectorAll(
     ".cart-table tbody .order-product-id"
   );
@@ -116,7 +112,10 @@ function addToCart(cartElement) {
   const productImg = productItem.querySelector(".product-img").src;
   const productName = productItem.querySelector(".product-name").innerText;
   const productPrice = productItem.querySelector(".product-price").innerText;
-  const productQuantity = 1;
+  const productQuantity = productItem.querySelector(
+    ".detail-quantity-value"
+  ).value;
+  const productStorage = productItem.querySelector('.product-quantity-value').innerText
   for (let i = 0; i < orders.length; i++) {
     if (orders[i].innerText == productID) {
       alert("Sản phẩm này đã có trong giỏ hàng");
@@ -135,7 +134,7 @@ function addToCart(cartElement) {
                           <div class="detail-quantity">
                               <i class="fa-solid fa-circle-minus desc-quantity" onclick="decreaseQuantity(this); cartTotal()"></i>
                               <input type="number" class="detail-quantity-value order-quantity" value="${productQuantity}" min="1" ></input>
-                              <i class="fa-solid fa-circle-plus plus-quantity" onclick="increaseQuantity(this); cartTotal()" ></i>
+                              <i class="fa-solid fa-circle-plus plus-quantity" onclick="increaseQuantity(this, ${productStorage}); cartTotal()" ></i>
                           </div>
         </td>
         <td><button onclick='deleteCart(this)' class='btn btn-danger delete-btn'>Xóa</button></td>

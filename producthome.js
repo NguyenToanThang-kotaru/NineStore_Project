@@ -16,18 +16,21 @@ function decreaseQuantity(minusElement) {
     detailQuantity.value = quantityValue;
   }
 }
-function increaseQuantity(plusElement) {
+function increaseQuantity(plusElement, maxValue) {
   var detailQuantity = plusElement.parentElement.querySelector(
     ".detail-quantity-value"
   );
   var quantityValue = Number(detailQuantity.value);
-  quantityValue++;
-  detailQuantity.value = quantityValue;
+  if (quantityValue < maxValue) {
+    quantityValue++;
+    detailQuantity.value = quantityValue;
+  }
 }
 // ngăn không cho nhập số < 1
 const detailQuantityList = document.querySelectorAll(".detail-quantity-value");
 detailQuantityList.forEach((inputNumber) => {
-  inputNumber.addEventListener("input", () => {
+  inputNumber.addEventListener("change", () => {
+    console.log(inputNumber)
     if (inputNumber.value < 1) {
       inputNumber.value = "";
     }
@@ -47,7 +50,7 @@ if (!localStorage.getItem("products")) {
       Name: item.querySelector(".product-name").innerText.trim(),
       Brand: item.querySelector(".product-brand").innerText.trim().trim(),
       Price: item.querySelector(".product-price").innerText.trim(),
-      Quantity: item.querySelector(".product-quantity").innerText.trim(),
+      Quantity: item.querySelector(".product-quantity-value").innerText.trim(),
       // OriginalPrice: item.querySelector(
       //   ".product-original-price .original-price"
       // ).innerText.trim(),
@@ -116,15 +119,15 @@ function displayProduct(arr) {
                       <div class="detail-title">
                         <h2 class="detail-heading">${item.Name}</h2>
                         <span class="detail-price">${item.Price}</span><sup class="sale-price">₫</sup>
-                        <div class="product-quantity">Kho: ${item.Quantity}</div>
+                        <div class="product-quantity">Kho: <span class="product-quantity-value">${item.Quantity}</span></div>
                         <div class="detail-quantity">
                           <i class="fa-solid fa-circle-minus desc-quantity" onclick="decreaseQuantity(this)"></i>
-                          <input type="number" class="detail-quantity-value" value="1" min="1"></input>
-                          <i class="fa-solid fa-circle-plus plus-quantity" onclick="increaseQuantity(this)"></i>
+                          <input type="number" class="detail-quantity-value" value="1" min="1" max="${item.Quantity}"></input>
+                          <i class="fa-solid fa-circle-plus plus-quantity" onclick="increaseQuantity(this,${item.Quantity})"></i>
                         </div>
                         <div class="detail-btn">
-                          <button class="add-cart-btn">Thêm vào giỏ hàng</button>
-                          <button class="buy-btn">Mua ngay</button>
+                          <button class="add-cart-btn" onclick="addToCart(this.parentElement.parentElement.parentElement.parentElement)">Thêm vào giỏ hàng</button>
+                          <button class="buy-btn" onclick="buyNow(this)">Mua ngay</button>
                         </div>
                       </div>
                     </section>
@@ -239,6 +242,27 @@ function changePage(page, type) {
     displayProduct(macList);
   } else;
   displayProduct(productList);
+}
+// --------------------- Mua ngay -------------------------
+function buyNow(buyElement) {
+  const productItem =
+    buyElement.parentElement.parentElement.parentElement.parentElement
+      .parentElement.parentElement;
+  const productID = productItem.id;
+  const productImg = productItem.querySelector(".product-img").src;
+  const productName = productItem.querySelector(".product-name").innerText;
+  const productPrice = productItem.querySelector(".product-price").innerText;
+  const productQuantity = productItem.querySelector(
+    ".detail-quantity-value"
+  ).value;
+  const product = {
+    ID: productID,
+    Name: productName,
+    Quantity: productQuantity,
+    Price: productPrice,
+    Img: productImg,
+  };
+  displayPayment([product], []);
 }
 // ---------------------- Khi load trang --------------------
 window.onload = function () {

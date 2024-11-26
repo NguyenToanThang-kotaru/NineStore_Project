@@ -26,8 +26,12 @@ function toggleCOD() {
 }
 
 function displayPayment(productList, cartListChecked) {
+  //Yêu cầu đăng ký thành khách hàng
+  if (!localStorage.getItem("userLogin")) {
+    alert("Vui lòng đăng nhập để mua hàng");
+    return;
+  }
   //---Nhập thông tin vào payment--
-  console.log(cartListChecked);
   //Thông tin cá nhân
   const userLogin = JSON.parse(localStorage.getItem("userLogin"));
   const name = document.querySelector(".payment-customer-name");
@@ -58,14 +62,17 @@ function displayPayment(productList, cartListChecked) {
               </td>
         </tr>`;
   });
-  const totalPriceCart = document.querySelector(
-    ".cart-table tfoot span"
-  ).innerText;
-  document.querySelector(".payment-total-product-price-value").innerText =
-    totalPriceCart;
-  document.querySelector(".payment-total-price-value").innerText =
-    totalPriceCart;
   bodyPayment.innerHTML = tbodyContent;
+  const pricePayment = document.querySelectorAll(".payment-price-value");
+  let totalPriceCart = 0;
+  pricePayment.forEach((price) => {
+    totalPriceCart += Number(price.innerText.replace(/\./g, ""));
+  });
+  document.querySelector(".payment-total-product-price-value").innerText =
+    totalPriceCart.toLocaleString("de-DE");
+  document.querySelector(".payment-total-price-value").innerText =
+    totalPriceCart.toLocaleString("de-DE");
+
   document.querySelector(".payment").style.display = "block";
   //Nghe sự kiện ấn thanh toán
   document
@@ -115,7 +122,7 @@ function displayPayment(productList, cartListChecked) {
             ProductList: productList,
             Customer: userLogin,
             OrderDate: today,
-            TotalPrice: totalPriceCart,
+            TotalPrice: totalPriceCart.toLocaleString("de-DE"),
             Pay: payment,
             CardNumber: atmNumber,
             Status: "Chưa xử lý",
@@ -126,7 +133,20 @@ function displayPayment(productList, cartListChecked) {
           for (let i = 0; i < cartListChecked.length; i++)
             cartListChecked[i].remove();
           cartTotal();
+          //Cập nhật lại số lượng trong kho
+          const productLocal =
+            JSON.parse(localStorage.getItem("products")) || [];
+          for (let i = 0; i < productList.length; i++) {
+            for (let j = 0; j < productLocal.length; j++) {
+              if (productList[i].ID == productLocal[j].ID) {
+                productLocal[j].Quantity -= productList[i].Quantity;
+                break;
+              }
+            }
+          }
+          localStorage.setItem("products", JSON.stringify(productLocal));
           alert("Đã thanh toán thành công.");
+          window.location.href = "NineShop.html";
         } else {
           alert("Vui lòng chọn một phương thức thanh toán");
         }
