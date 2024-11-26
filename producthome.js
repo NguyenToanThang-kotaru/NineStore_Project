@@ -30,7 +30,7 @@ function increaseQuantity(plusElement, maxValue) {
 const detailQuantityList = document.querySelectorAll(".detail-quantity-value");
 detailQuantityList.forEach((inputNumber) => {
   inputNumber.addEventListener("change", () => {
-    console.log(inputNumber)
+    console.log(inputNumber);
     if (inputNumber.value < 1) {
       inputNumber.value = "";
     }
@@ -222,14 +222,17 @@ function createListPage(arr) {
 function showDELL() {
   thisPage = 1;
   displayProduct(dellList);
+  localStorage.setItem('productFilter', JSON.stringify(dellList))
 }
 function showASUS() {
   thisPage = 1;
   displayProduct(asusList);
+  localStorage.setItem('productFilter', JSON.stringify(asusList))
 }
 function showMac() {
   thisPage = 1;
   displayProduct(macList);
+  localStorage.setItem('productFilter', JSON.stringify(macList))
 }
 
 function changePage(page, type) {
@@ -264,7 +267,18 @@ function buyNow(buyElement) {
   };
   displayPayment([product], []);
 }
+// ---------------------- Search--------------------
+function searchProduct(arr) {
+  let valueSearchInput = document.querySelector("#search-product").value;
+  const products = JSON.parse(localStorage.getItem("productFilter")) || [];
+  let productSearch = Array.from(products).filter((value) => {
+    const productName = value.Name.toUpperCase();
+    return productName.includes(valueSearchInput.toUpperCase());
+  });
+  displayProduct(productSearch);
+}
 // ---------------------- Khi load trang --------------------
 window.onload = function () {
   displayProduct(productList);
-};
+  localStorage.setItem('productFilter', JSON.stringify(productList))
+}
