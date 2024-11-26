@@ -561,6 +561,12 @@ function addOrdertoTable() {
       `;
     });
     //order
+    //Đặt trạng thái cho bảng
+    let statusValue = "";
+    if (order.Status == "Chưa xử lý") statusValue = "cxl";
+    else if (order.Status == "Đã xác nhận") statusValue = "dxn";
+    else if (order.Status == "Đã giao thành công") statusValue = "dg";
+    else statusValue = "dh";
     const orderDate = new Date(order.OrderDate);
     const formattedDate = new Intl.DateTimeFormat("vi-VN").format(orderDate);
     orderContent =
@@ -603,21 +609,29 @@ function addOrdertoTable() {
                                                     </tr>
                                                     <tr>
                                                       <td colspan="4" class="order-detail-status">
-                                                        <label for="option-status"
-                                                          >Tình trạng</label
-                                                        >
-                                                        <select
-                                                          id="option-status"
-                                                          name="option-status"
-                                                        >
-                                                          <option value="Chưa xử lý">Chưa xử lý</option>
-                                                          <option value="Đã xử lý">Đã xử lý</option>
-                                                          <option value="Đang giao">
-                                                            Đang giao
-                                                          </option>
-                                                          <option value="Đã giao">Đã giao</option>
-                                                          <option value="Đã hủy">Đã hủy</option>
-                                                        </select>
+                                                        <form style="background-color: #fff;">
+                                                          <label for="option-status"
+                                                            >Tình trạng:</label
+                                                          >
+                                                          <select
+                                                            id="option-status"
+                                                            name="option-status"
+                                                            value="${statusValue}"
+                                                            onchange="setOrderStatus(this)"
+                                                          >
+                                                            <option value="cxl">Chưa xử lý</option>
+                                                            <option value="dxn">Đã xác nhận</option>
+                                                            <option value="dg">Đã giao</option>
+                                                            <option value="dh">Đã hủy</option>
+                                                          </select>
+                                                          <button
+                                                            type="submit"
+                                                            class="order__submit-status"
+                                                            disabled
+                                                          >
+                                                            Xác nhận thay đổi
+                                                          </button>
+                                                        </form>
                                                       </td>
                                                     </tr>
                                                   </tfoot>
@@ -629,6 +643,7 @@ function addOrdertoTable() {
                                     </tr>`;
   });
   document.querySelector(".order-table tbody").innerHTML = orderContent;
+  setStatusColor();
 }
 addOrdertoTable();
 
@@ -636,7 +651,46 @@ function showOrderDetail(orderElement) {
   console.log(orderElement.parentElement);
   orderElement.parentElement.querySelector(".overlay").style.display = "block";
 }
-
+// Set Status
+function setOrderStatus(statusElement) {
+  const orderStatus = statusElement.value;
+  const orderStatusSubmit = document.querySelector(".order__submit-status");
+  orderStatusSubmit.disabled = false;
+  orderStatusSubmit.style.opacity = 1;
+  orderStatusSubmit.addEventListener("click", (event) => {
+    event.preventDefault();
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const orderDiv =
+      orderStatusSubmit.parentElement.parentElement.parentElement.parentElement
+        .parentElement.parentElement.parentElement.parentElement.parentElement
+        .parentElement;
+    const orderID = orderDiv.querySelector(".order__id").innerText;
+    const statusText =
+      statusElement.options[statusElement.selectedIndex].innerText; // Lấy text của thẻ option đang được chọn
+    for (let i = 0; i < orders.length; i++)
+      if (orders[i].ID == orderID) {
+        orders[i].Status = statusText;
+        break;
+      }
+    orderDiv.querySelector(".order__status").innerText = statusText;
+    localStorage.setItem("orders", JSON.stringify(orders));
+    setStatusColor();
+    alert("Đã cập nhật trạng thái thành công!");
+  });
+}
+function setStatusColor() {
+  const orderStatus = document.querySelectorAll(".order__status");
+  for (let i = 0; i < orderStatus.length; i++) {
+    if (orderStatus[i].innerText == "Chưa xử lý")
+      orderStatus[i].style.color = "#565555";
+    else if (orderStatus[i].innerText == "Đã xác nhận")
+      orderStatus[i].style.color = "#4a81e1";
+    else if (orderStatus[i].innerText == "Đã giao thành công")
+      orderStatus[i].style.color = "#00bb4bda";
+    else if (orderStatus[i].innerText == "Đã hủy")
+      orderStatus[i].style.color = "#ff0000da";
+  }
+}
 // open / close a page when the icon is clicked
 {
   // open product lists

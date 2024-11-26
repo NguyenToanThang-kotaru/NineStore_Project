@@ -6,7 +6,10 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./adminstyle.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter"
+    />
     <title>Admin Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -687,21 +690,33 @@
                                   </tr>
                                   <tr>
                                     <td colspan="4" class="order-detail-status">
-                                      <label for="option-status"
-                                        >Tình trạng</label
-                                      >
-                                      <select
-                                        id="option-status"
-                                        name="option-status"
-                                      >
-                                        <option value="cxl">Chưa xử lý</option>
-                                        <option value="dxl">Đã xử lý</option>
-                                        <option value="danggiao">
-                                          Đang giao
-                                        </option>
-                                        <option value="dagiao">Đã giao</option>
-                                        <option value="dh">Đã hủy</option>
-                                      </select>
+                                      <form style="background-color: #fff">
+                                        <label for="option-status"
+                                          >Tình trạng</label
+                                        >
+                                        <select
+                                          id="option-status"
+                                          name="option-status"
+                                          onchange="setOrderStatus(this)"
+                                        >
+                                          <option value="cxl">
+                                            Chưa xử lý
+                                          </option>
+                                          <option value="dxl">
+                                            Đã xác nhận
+                                          </option>
+                                          <option value="dg">
+                                            Đã giao thành công
+                                          </option>
+                                          <option value="dh">Đã hủy</option>
+                                        </select>
+                                        <button
+                                          type="submit"
+                                          class="order__submit-status"
+                                        >
+                                          Xác nhận thay đổi
+                                        </button>
+                                      </form>
                                     </td>
                                   </tr>
                                 </tfoot>

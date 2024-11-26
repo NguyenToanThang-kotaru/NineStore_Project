@@ -33,12 +33,11 @@ function innerInfo() {
 // -------------------------------- OrderHistory ------------------------------
 function addToHistory() {
   const userLogin = JSON.parse(localStorage.getItem("userLogin"));
-  const orders = JSON.parse(localStorage.getItem("orders")) || []
-  let orderLogin = []
-  orders.forEach((order) =>{
-    if(userLogin.UserId == order.Customer.UserId)
-        orderLogin.push(order)
-  })
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let orderLogin = [];
+  orders.forEach((order) => {
+    if (userLogin.UserId == order.Customer.UserId) orderLogin.push(order);
+  });
   const historyTableList = document.querySelector(".history-table-list");
   let tableContent = "";
   orderLogin.forEach((order, index) => {
@@ -110,5 +109,20 @@ function checkHistoryEmpty() {
 }
 function showHistory() {
   addToHistory();
+  setStatusColorinUser();
   document.querySelector(".history-page").style.display = "block";
+}
+
+function setStatusColorinUser() {
+  const orderStatus = document.querySelectorAll(".history-order-status-text");
+  for (let i = 0; i < orderStatus.length; i++) {
+    if (orderStatus[i].innerText == "Chưa xử lý")
+      orderStatus[i].style.color = "#565555";
+    else if (orderStatus[i].innerText == "Đã xác nhận")
+      orderStatus[i].style.color = "#4a81e1";
+    else if (orderStatus[i].innerText == "Đã giao thành công")
+      orderStatus[i].style.color = "#00bb4bda";
+    else if (orderStatus[i].innerText == "Đã hủy")
+      orderStatus[i].style.color = "#ff0000da";
+  }
 }

@@ -343,3 +343,20 @@ button:hover {
   font-weight: 700;
   text-align: left;
 }
+.order__submit-status {
+  background-color: #d7fbf8;
+  opacity: 0.5;
+  padding: 10px;
+}
+.order__submit-status:hover {
+  background-color: #8ebffc;
+  cursor: pointer;
+}
+.order__submit-status:disabled:hover {
+  background-color: #d7fbf8;
+  cursor: default;
+}
+.order__status {
+  color: #ff0000da;
+  /* #565555 #4a81e1 #00bb4bda #ff0000da*/
+}
